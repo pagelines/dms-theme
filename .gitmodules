@@ -1,3 +1,42 @@
 [submodule "dms"]
 	path = dms
 	url = git@github.com:pagelines/DMS.git
+[submodule "sections/flipper"]
+	path = sections/flipper
+	url = git@github.com:pagelines/flipper.git
+[submodule "sections/hero"]
+	path = sections/hero
+	url = git@github.com:pagelines/hero.git
+[submodule "sections/icallout"]
+	path = sections/icallout
+	url = git@github.com:pagelines/icallout.git
+[submodule "sections/masthead"]
+	path = sections/masthead
+	url = git@github.com:pagelines/masthead.git
+[submodule "sections/popthumbs"]
+	path = sections/popthumbs
+	url = git@github.com:pagelines/popthumbs.git
+[submodule "sections/propricing"]
+	path = sections/propricing
+	url = git@github.com:pagelines/propricing.git
+[submodule "sections/quickslider"]
+	path = sections/quickslider
+	url = git@github.com:pagelines/quickslider.git
+[submodule "sections/rapidtabs"]
+	path = sections/rapidtabs
+	url = git@github.com:pagelines/rapidtabs.git
+[submodule "sections/revslider"]
+	path = sections/revslider
+	url = git@github.com:pagelines/revslider.git
+[submodule "sections/scrollspy"]
+	path = sections/scrollspy
+	url = git@github.com:pagelines/scrollspy.git
+[submodule "sections/secondnav"]
+	path = sections/secondnav
+	url = git@github.com:pagelines/secondnav.git
+[submodule "sections/sharebar"]
+	path = sections/sharebar
+	url = git@github.com:pagelines/sharebar.git
+[submodule "sections/starbars"]
+	path = sections/starbars
+	url = git@github.com:pagelines/starbars.git
