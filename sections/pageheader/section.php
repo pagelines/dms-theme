@@ -41,7 +41,7 @@ class PLPageHeader extends PageLinesSection {
 				),
 				array(
 					'key'			=> 'ph_padding',
-					'type' 			=> 'text_small',
+					'type' 			=> 'select_padding',
 					'label' 		=> __( 'Header Top/Bottom Padding in px', 'pagelines' ),
 				),
 			)
@@ -115,24 +115,36 @@ class PLPageHeader extends PageLinesSection {
 	}
 
 	function section_template() {
-
-		$format = '';
-		$title = 'Testing';
-		$text = 'Testing';
-		$style = '';
-		$link = '';
-		$link_text = 'Test';
 		
+		global $post;
+		$format = '';
+		$title = ( $this->opt('ph_header') ) ? $this->opt('ph_header') : get_the_title( $post->ID );
+		$text = ( $this->opt('ph_sub') ) ? $this->opt('ph_sub') : '';
+	
+		$link = ( $this->opt('ph_link1') ) ? $this->opt('ph_link1') : false;
+		$style = ( $this->opt('ph_link1_style') ) ? $this->opt('ph_link1_style') : 'btn-primary';
+		$link_text = ( $this->opt('ph_link1_text') ) ? $this->opt('ph_link1_text') : false;
+		
+		$link2 = ( $this->opt('ph_link2') ) ? $this->opt('ph_link2') : false;
+		$style2 = ( $this->opt('ph_link2_style') ) ? $this->opt('ph_link2_style') : '';
+		$link_text2 = ( $this->opt('ph_link2_text') ) ? $this->opt('ph_link2_text') : false;
+		
+		$button1 = ($link) ? sprintf('<a href="%s" class="btn btn-large %s">%s</a>', $link, $style, $link_text) : '';
+		$button2 = ($link2) ? sprintf('<a href="%s" class="btn btn-large %s">%s</a>', $link2, $style2, $link_text2) : '';
 
+		$style =  ( $this->opt('ph_background') ) ? sprintf('background-image: url(%s);', $this->opt('ph_background')) : '';
+		
+		$padding = ( $this->opt('ph_padding') ) ? sprintf( 'padding: %spx 0;', $this->opt('ph_padding')) : '';
+		
 		?>
-		<div class="pl-ph-container pl-contrast <?php echo $format;?>">
-			<div class="pl-content fix pl-centerer">
+		<div class="pl-ph-container <?php echo $format;?>" style="<?php echo $style; ?>">
+			<div class="pl-content fix pl-centerer" style="">
 				<div class="ph-text">
 					<h2 class="ph-head" data-sync="icallout_text"><?php echo $title; ?></h2>
 					<div class="ph-sub"><?php echo $text; ?></div>
 				</div>
 				<div class="ph-meta pl-centered">
-				<a class="icallout-action btn <?php echo $style;?> btn-large" href="<?php echo $link; ?>" data-sync="icallout_link_text"><?php echo $link_text; ?></a>
+					<?php echo $button1 .' '. $button2;?>
 				</div>
 			</div>
 		</div>
