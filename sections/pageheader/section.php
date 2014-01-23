@@ -100,6 +100,10 @@ class PLPageHeader extends PageLinesSection {
 		$format = '';
 		$title = ( $this->opt('ph_header') ) ? $this->opt('ph_header') : get_the_title( $post->ID );
 		$text = ( $this->opt('ph_sub') ) ? $this->opt('ph_sub') : '';
+		
+		$mode = ( $this->opt('ph_mode') ) ? $this->opt('ph_mode') : 'link';
+		
+		$format = ( $this->opt('ph_format') ) ? $this->opt('ph_format') : 'left';
 	
 		$link = ( $this->opt('ph_link1') ) ? $this->opt('ph_link1') : false;
 		$style = ( $this->opt('ph_link1_style') ) ? $this->opt('ph_link1_style') : 'btn-primary';
@@ -120,11 +124,11 @@ class PLPageHeader extends PageLinesSection {
 		<div class="pl-ph-container <?php echo $format;?>" style="<?php echo $style; ?>">
 			<div class="pl-content fix pl-centerer" style="">
 				<div class="ph-text">
-					<h2 class="ph-head" data-sync="icallout_text"><?php echo $title; ?></h2>
-					<div class="ph-sub"><?php echo $text; ?></div>
+					<h2 class="ph-head" data-sync="ph_header"><?php echo $title; ?></h2>
+					<div class="ph-sub" ata-sync="ph_sub"><?php echo $text; ?></div>
 				</div>
 				<div class="ph-meta pl-centered">
-					<?php echo $button1 .' '. $button2;?>
+					<?php echo $button1 .' '. $button2; ?>
 				</div>
 			</div>
 		</div>
