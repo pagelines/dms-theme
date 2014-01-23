@@ -23,13 +23,12 @@ class PLTestimonials extends PageLinesSection {
 		$options[] = array(
 			'key'		=> 'pl_testimonial_array',
 	    	'type'		=> 'accordion', 
-			'col'		=> 2,
 			'title'		=> __('Testimonials Setup', 'pagelines'), 
 			'post_type'	=> __('Testimonial', 'pagelines'), 
 			'opts'	=> array(
 				array(
 					'key'	=> 'text',
-					'label'	=> __( 'Slide Text', 'pagelines' ),
+					'label'	=> __( 'Text', 'pagelines' ),
 					'type'			=> 'text'
 				),
 				array(
@@ -54,16 +53,16 @@ class PLTestimonials extends PageLinesSection {
 
 			$item_array = array(
 				array(
-					'text'	=> 'Test1',
-					'cite'	=> 'Andrew Powers'
+					'text'	=> 'The difference between stupidity and genius is that genius has its limits.',
+					'cite'	=> 'Albert Einstein, <a href="http://www.pagelines.com">PageLines</a>'
 				),
 				array(
-					'text'	=> 'Test2',
-					'cite'	=> 'Andrew Powers'
+					'text'	=> 'Be a yardstick of quality. Some people are not used to an environment where excellence is expected.',
+					'cite'	=> 'Steve Jobs, <a href="http://www.pagelines.com">PageLines</a>'
 				),
 				array(
-					'text'	=> 'Test3',
-					'cite'	=> 'Andrew Powers'
+					'text'	=> 'Any product that needs a manual to work is broken.',
+					'cite'	=> 'Elon Musk, <a href="http://www.pagelines.com">PageLines</a>'
 				),
 			);
 
