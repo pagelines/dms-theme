@@ -87,28 +87,8 @@ class PLPageHeader extends PageLinesSection {
 				)			
 		); 
 		
-		$options['background'] = array(
-			'title' => __( 'Header Background', 'pagelines' ),
-			'type'	=> 'multi',
-			'col'	=> 3,
-			'opts'	=> array(
-				array(
-					'key'			=> 'ph_background',
-					'type' 			=> 'image_upload',
-					'label' 		=> __( 'Header Background Image', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'ph_video',
-					'type' 			=> 'media_select_video',
-					'label' 		=> __( 'Header Link 1 (link mode only)', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'ph_color',
-					'type' 			=> 'color',
-					'label' 		=> __( 'Header Background Color (optional)', 'pagelines' ),
-				),
-			)
-		);
+		$options[] = pl_get_background_options('ph', 3);
+		
 		
 		return $options;
 
