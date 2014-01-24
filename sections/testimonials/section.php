@@ -12,8 +12,8 @@
 class PLTestimonials extends PageLinesSection {
 
 	function section_styles(){
-		wp_enqueue_script( 'quovolver', $this->base_url . '/jquery.quovolver.js', array( 'jquery' ), PL_CORE_VERSION, true );
-		wp_enqueue_script( 'pagelines-quovolver', $this->base_url . '/pl.quovolver.js', array( 'quovolver' ), PL_CORE_VERSION, true );
+		wp_enqueue_script( 'quovolver', $this->base_url . '/jquery.quovolver.js', array( 'jquery' ), pl_get_cache_key(), true );
+		wp_enqueue_script( 'pagelines-quovolver', $this->base_url . '/pl.quovolver.js', array( 'quovolver' ), pl_get_cache_key(), true );
 	}
 	
 	function section_opts(){
