@@ -26,8 +26,8 @@ class PLPageHeader extends PageLinesSection {
 					'label' 		=> __( 'Format', 'pagelines' ),
 					'type'			=> 'select',
 					'opts'	=> array(
-						'left-side'	=> array('name'=> 'Text On Left'),
-						'centered'		=> array('name'=> 'Centered'),
+						'format-standard'	=> array('name'=> 'Text On Left'),
+						'format-center'		=> array('name'=> 'Centered'),
 					)
 				),
 				array(
@@ -40,7 +40,7 @@ class PLPageHeader extends PageLinesSection {
 					)
 				),
 				array(
-					'key'			=> 'ph_padding',
+					'key'			=> 'ph_pad_class',
 					'type' 			=> 'select_padding',
 					'label' 		=> __( 'Header Top/Bottom Padding in px', 'pagelines' ),
 				),
@@ -70,7 +70,7 @@ class PLPageHeader extends PageLinesSection {
 				'col'	=> 2,
 				'opts'	=> array(
 					array(
-						'key'			=> 'ph_header',
+						'key'			=> 'ph_menu',
 						'type' 			=> 'select_menu',
 						'label' 		=> __( 'Header Menu (menu mode only)', 'pagelines' ),
 					),
@@ -93,42 +93,45 @@ class PLPageHeader extends PageLinesSection {
 		return $options;
 
 	}
+	
+	function before_section_template( $location = '' ) {
+
+		$this->wrapper_classes['special'] = pl_get_area_classes('ph', $this, array('scroll' => 'pl-scroll-translate')); 
+
+	}
+	
 
 	function section_template() {
 		
 		global $post;
-		$format = '';
-		$title = ( $this->opt('ph_header') ) ? $this->opt('ph_header') : get_the_title( $post->ID );
-		$text = ( $this->opt('ph_sub') ) ? $this->opt('ph_sub') : '';
+		
+		$title = ( $this->opt('ph_header') ) ? $this->opt('ph_header') : pl_smart_page_title();
+		$text = ( $this->opt('ph_sub') ) ? $this->opt('ph_sub') : pl_smart_page_subtitle();
 		
 		$mode = ( $this->opt('ph_mode') ) ? $this->opt('ph_mode') : 'link';
 		
-		$format = ( $this->opt('ph_format') ) ? $this->opt('ph_format') : 'left';
-	
-		$link = ( $this->opt('ph_link1') ) ? $this->opt('ph_link1') : false;
-		$style = ( $this->opt('ph_link1_style') ) ? $this->opt('ph_link1_style') : 'btn-primary';
-		$link_text = ( $this->opt('ph_link1_text') ) ? $this->opt('ph_link1_text') : false;
+		$container_class = array();
+		$container_class[] = $this->opt('ph_format'); 
+		$container_class[] = $this->opt('ph_pad_class'); 
 		
-		$link2 = ( $this->opt('ph_link2') ) ? $this->opt('ph_link2') : false;
-		$style2 = ( $this->opt('ph_link2_style') ) ? $this->opt('ph_link2_style') : '';
-		$link_text2 = ( $this->opt('ph_link2_text') ) ? $this->opt('ph_link2_text') : false;
-		
-		$button1 = ($link) ? sprintf('<a href="%s" class="btn btn-large %s">%s</a>', $link, $style, $link_text) : '';
-		$button2 = ($link2) ? sprintf('<a href="%s" class="btn btn-large %s">%s</a>', $link2, $style2, $link_text2) : '';
-
 		$style =  ( $this->opt('ph_background') ) ? sprintf('background-image: url(%s);', $this->opt('ph_background')) : '';
 		
-		$padding = ( $this->opt('ph_padding') ) ? sprintf( 'padding: %spx 0;', $this->opt('ph_padding')) : '';
 		
 		?>
-		<div class="pl-ph-container <?php echo $format;?>" style="<?php echo $style; ?>">
-			<div class="pl-content fix pl-centerer" style="">
+		<div class="pl-ph-container pl-area-wrap  pl-animation pl-slidedown fix <?php echo join(' ', $container_class);?>" style="<?php echo $style; ?>">
+			<div class="pl-end-height pl-content fix pl-centerer" style="">
 				<div class="ph-text">
 					<h2 class="ph-head" data-sync="ph_header"><?php echo $title; ?></h2>
 					<div class="ph-sub" ata-sync="ph_sub"><?php echo $text; ?></div>
 				</div>
 				<div class="ph-meta pl-centered">
-					<?php echo $button1 .' '. $button2; ?>
+					<?php 
+					
+						echo pl_get_button_link('ph_link1', $this); 
+						echo pl_get_button_link('ph_link2', $this); 
+					
+						
+					 ?>
 				</div>
 			</div>
 		</div>

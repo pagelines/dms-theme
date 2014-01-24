@@ -6,28 +6,40 @@
 .pl-ph-container{
 	.background-size(cover);
 	background-position: center center;
+	
 	.pl-content {
 		padding: 60px 0;
-		h2{
-			margin: 0; 
-			font-size: 45px;
-			font-weight: 600;
+		
+	}
+	h2{
+		margin: 0; 
+		font-size: 40px;
+		line-height: 1.3em;
+		font-weight: 600;
+	}
+	.ph-sub{
+		font-size: 22px;
+		line-height: 1em;
+		font-weight: 300;
+		opacity: .7;
+	}
+	.ph-text{
+		float: left; 
+		
+	}
+	.ph-meta{
+		float: right;
+		.btn{
+			margin: 0 10px;
 		}
-		.ph-sub{
-			font-size: 25px;
-			line-height: 1em;
-			font-weight: 300;
-			opacity: .7;
-		}
-		.ph-text{
-			float: left; 
-			
-		}
+	}
+	
+	&.format-center{
+		text-align: center;
+		.ph-text,
 		.ph-meta{
-			float: right;
-			.btn{
-				margin-left: 10px;
-			}
+			float: none;
+			display: block;
 		}
 	}
 }
