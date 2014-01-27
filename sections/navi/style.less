@@ -108,6 +108,7 @@
 				padding: 15px 0px;
 				background-color: #1F1F1F;
 			}	
+			
 			> ul > li {
 				.sub-indicator {
 					display: none;
@@ -116,9 +117,10 @@
 				display: table-cell;
 				padding: 0px 15px;
 				width: 33.33%;
+				
 				border-right: 1px solid rgba(255, 255, 255, 0.1);
 				> a {
-					font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+					font-family: @defaultFont;
 					font-weight: 600;
 					font-size: 12px;
 					text-transform: uppercase;
@@ -139,6 +141,12 @@
 					}
 				}
 			}
+			&.col-1 > ul > li { width: 100%; }
+			&.col-2 > ul > li { width: 50%; }
+			&.col-3 > ul > li { width: 33.33%; }
+			&.col-4 > ul > li { width: 25%; }
+			&.col-5 > ul > li { width: 20%; }
+			&.col-6 > ul > li { width: 16.66%%; }
 		}
 	}
 	ul {
