@@ -94,9 +94,10 @@ class PLNavi extends PageLinesSection {
 		$logo = ( $this->opt('navi_logo') ) ? $this->opt('navi_logo') : pl_get_theme_logo(); 
 		$menu = ( $this->opt('navi_menu') ) ? $this->opt('navi_menu') : false;
 		$hide_search = ( $this->opt('navi_search') ) ? true : false; 
+		$class = ( $this->meta['draw'] == 'area' ) ? 'pl-content' : ''; 
 
 	?>
-	<div class="navi-wrap <?php echo $hide_search; ?> fix pl-content">
+	<div class="navi-wrap <?php echo $class; ?> fix">
 		<div class="navi-left navi-container">
 			<a href="<?php echo home_url();?>"><img src="<?php echo $logo; ?>" /></a>
 		</div>
