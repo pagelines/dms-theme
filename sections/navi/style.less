@@ -1,0 +1,215 @@
+.section-navi{
+	
+	text-align: center;
+	width: 100%;
+	position:relative; // without this there is issues with centered elements
+
+	.nav-searchform, 
+	ul{
+		vertical-align: top;	
+		font-size: 12px;
+	}
+	.navi-wrap{
+		height: 50px;
+	}
+	.navi-container{
+		height: 30px;
+		padding: 10px;
+	}
+	.navi-right{
+		float: right;
+	}
+	.navi-left{
+		float: left;
+	}
+	.navi-center{
+		
+		display: inline-block;
+	}
+	.navi-searchform{
+		height: 50px;
+		line-height: 50px;
+		margin-bottom: 0;
+		
+		position: relative;
+		display: inline-block;
+		.btn-search{
+		
+		/*
+					font-size: 1.3em;
+					line-height: 1em;*/
+			padding: 0 20px;
+		}
+		input{
+			vertical-align: top;
+			margin: 0;
+			font-family: @defaultFont;
+			border: none;
+			
+			height: 50px;
+			width: 0;
+			background: transparent;
+			padding: 0;
+			.transition(width .5s ease-in-out);
+			border-radius: 0;
+			&:focus{
+				box-shadow: none;
+			}
+		}
+		&.has-focus{
+			background: @baseContrastSlight;
+			input{
+				width: 130px;
+			}
+			 .btn-search{
+				color: @pl-link;
+			}
+		}
+	}
+	img{
+		max-height: 100%;
+	}
+	.pl-nav > li{
+		
+		> a{
+			line-height: 50px;
+			padding: 0 13px;
+		
+		
+		}
+		
+		&.current-menu-item > a,
+		&:hover > a{
+			background: @baseContrastSlight;
+		}
+		> ul {
+			display: none;
+		}
+	} 
+			
+}
+
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, 
+.sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu {
+	li {
+		position: relative;
+		&.megamenu {
+			position: inherit;
+			> ul.sub-menu {
+				width: 100%;	
+				left: 0px;
+				padding: 15px 0px;
+				background-color: #1F1F1F;
+			}	
+			> ul > li {
+				.sub-indicator {
+					display: none;
+				}
+				
+				display: table-cell;
+				padding: 0px 15px;
+				width: 33.33%;
+				border-right: 1px solid rgba(255, 255, 255, 0.1);
+				> a {
+					font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+					font-weight: 600;
+					font-size: 12px;
+					text-transform: uppercase;
+					margin-bottom: 5px;
+					letter-spacing: 2px;
+					border-bottom: none;
+				}
+				ul {
+					display: block!important;
+					top: 0px!important;
+					width: 100%;
+					opacity: 1!Important;
+					left: 0px!important;
+					position: relative!important;
+					li a{
+						border: none;
+						padding: 7px 14px;
+					}
+				}
+			}
+		}
+	}
+	ul {
+		position: absolute;
+		display: none;
+		top: 100%;
+		left: 0;
+		z-index: 99;
+		width: 15em;
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+		
+		li{
+			width: 100%;
+			a {
+				font-size: 12px;
+				line-height: 13px;
+			    margin: 0;
+			    padding: 14px;
+			    border-bottom: 1px solid rgba(255,255,255,0.1); 
+				color: #ccc;
+				transition: none;
+				background-color: #1F1F1F;
+			}
+		}
+		
+		li.sfHover > a,
+		li:hover > a {
+			color: @pl-link;	
+		}
+		
+		 a:focus ,
+		a:hover ,
+		 a:active ,
+		li.current-menu-item a{
+			background-color: rgba(255,255,255,.1);
+			color: @pl-link;	
+			outline: 0 none;
+		}
+		
+		ul {
+			top: 0;
+			left: 100%;
+		}
+	}
+	li:last-child ul{
+		left: auto;
+		right: 0;
+	}
+	
+	li:hover > ul,
+	li.sfHover > ul {
+		display: block;
+	}
+	a {
+	
+		display: block;
+		position: relative;
+		text-align: left;
+	}
+	
+}
+
+.sf-menu li li a, .sf-menu li li a:visited {
+    padding-left: 1.25em;
+}
+
+.sub-indicator {
+	opacity: .8;
+}
+
+
+
+
+
