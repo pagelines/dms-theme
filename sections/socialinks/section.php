@@ -126,9 +126,7 @@ class PLSocialinks extends PageLinesSection {
 		
 		if( pl_setting('sl_web') ){
 			
-			?>
-			<span class="sl-web-links">
-			<a class="sl-link"  title="CSS3 Valid"><i class="icon-css3"></i></a><a class="sl-link" title="HTML5 Valid"><i class="icon-html5"></i></a><a class="sl-link" href="http://www.pagelines.com" title="Built with PageLines DMS"><i class="icon-pagelines"></i></a>
+			?><span class="sl-web-links"><a class="sl-link"  title="CSS3 Valid"><i class="icon-css3"></i></a><a class="sl-link" title="HTML5 Valid"><i class="icon-html5"></i></a><a class="sl-link" href="http://www.pagelines.com" title="Built with PageLines DMS"><i class="icon-pagelines"></i></a>
 			</span>
 			<?php 
 			
