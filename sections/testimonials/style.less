@@ -35,7 +35,8 @@
 /**
  * General Navigation Styles
  */
-.quovolve-nav:before, .quovolve-nav:after {
+.quovolve-nav:before, 
+.quovolve-nav:after {
   content: "\0020"; display: block; height: 0; visibility: hidden;  
 } 
 .quovolve-nav:after { clear: both; }
@@ -44,25 +45,42 @@
   zoom: 1;
 }
 
+
 .quovolve-nav a {
 	background: transparent;
-	
-	line-height: 20px;
-	color: #fff;
 	display: block;
-
 	font-size: 0;
+	text-align: center;
+	
+
+}
+.quovolve-nav li.avatar-nav{
+	margin: 0 7px;
+	&:hover a,
+	&.active a{
+		opacity: 1;
+	//	.translate(0, -5px);
+	}
+	a{
+		.transition(all .1s);
+		box-shadow: 0 1px 1px rgba(0,0,0,.2);
+		.background-size(cover);
+		height: 50px;
+		width: 50px;
+		opacity: .5;
+		border-radius: 100px;
+	}
+}
+
+
+
+.quovolve-nav .nav-theme a{
+	border: 1px solid @pl-text;
+	border-radius: 15px;
+	line-height: 20px;
+	
 	height: 10px;
 	width: 10px;
-	border: 1px solid @pl-link;
-	text-align: center;
-	/* Border Radius */
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	&:hover {
-	  background: #dd390d;
-	}
 }
 
 /**
@@ -80,10 +98,7 @@
 	
 	}
 }
-.nav-numbers li.active a, 
-.nav-numbers li a:hover {
-  background: @pl-link;
-}
+
 
 /**
  * Navigation Description
