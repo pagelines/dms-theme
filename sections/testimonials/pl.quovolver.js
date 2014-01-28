@@ -10,7 +10,7 @@
 			,	speed = tst.data('speed')
 			,	auto = Boolean( tst.data('auto') )
 		
-			$(this).quovolver({
+			tst.quovolver({
 				children : 'li',
 				transitionSpeed : 200,
 				autoPlay : auto,
