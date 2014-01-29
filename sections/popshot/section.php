@@ -35,6 +35,12 @@ class PLPopShot extends PageLinesSection {
 							'browser'	=> array( 'name' => 'Faux Browser Wrap (for screenshots)'),
 						), 
 					),
+					array(
+						'type'	=> 'text_small',
+						'key'	=> 'popshot_height', 
+						'label'	=> 'Total Height of PopShot',
+						'place'	=> '350px'
+					),
 				)
 				
 			);
@@ -56,21 +62,21 @@ class PLPopShot extends PageLinesSection {
 					'key'	=> 'offset',
 					'label'	=> __( 'Offset from center', 'pagelines' ),
 					'type'	=> 'text_small',
-					'place'	=> '-100px',
+					'place'	=> '-300px',
 					'help'	=> __( 'Left edge offset from center. For example -100px  would move the left edge of the image 100 pixels left from center.', 'pagelines' ),
 				),
 				array(
 					'key'	=> 'width',
 					'label'	=> __( 'Maximum Width', 'pagelines' ),
 					'type'	=> 'text_small',
-					'place'	=> '300px',
+					'place'	=> '600px',
 					'help'	=> __( 'Max width of image.', 'pagelines' ),
 				),
 				array(
 					'key'	=> 'height',
 					'label'	=> __( 'Maximum Height', 'pagelines' ),
 					'type'	=> 'text_small',
-					'place'	=> '200px',
+					'place'	=> '250px',
 					'help'	=> __( 'Max height from bottom in pixels.', 'pagelines' ),
 				),
 				array(
@@ -85,8 +91,16 @@ class PLPopShot extends PageLinesSection {
 
 			)
 	    );
+	
+		$options[] = pl_get_background_options('popshot', 3);
 
 		return $options;
+
+	}
+	
+	function before_section_template( $location = '' ) {
+
+		$this->wrapper_classes['special'] = pl_get_area_classes( $this ); 
 
 	}
 
@@ -141,12 +155,14 @@ class PLPopShot extends PageLinesSection {
 		
 		$array = $this->opt('popshot_array');
 		
+		$height = ( $this->opt('popshot_height') ) ? $this->opt('popshot_height') : '350px';
 		
+		$style =  ( $this->opt('popshot_background') ) ? sprintf('background-image: url(%s);', $this->opt('popshot_background')) : '';
 		
 	?>
 	
-	<div class="popshot-wrap <?php echo join( ' ', $classes );?>">
-		
+	<div class="popshot-wrap <?php echo join( ' ', $classes );?>" style="height: <?php echo $height;?>; <?php echo pl_get_area_styles($this);?> ">
+		<?php pl_standard_video_bg($this); ?>
 		<div class="pl-animation-group">
 			<?php
 			
