@@ -77,7 +77,7 @@
 			line-height: 50px;
 			padding: 0 13px;
 		
-			
+			opacity: .7;
 		}
 		.mm-toggle{
 			padding: 0 20px;
@@ -85,7 +85,8 @@
 		
 		&.current-menu-item > a,
 		&:hover > a{
-			background: @baseContrastSlight;
+			opacity: 1;
+			background: rgba(0,0,0,.03);
 		}
 		> ul {
 			display: none;
@@ -204,9 +205,9 @@
 			left: 100%;
 		}
 	}
-	li:last-child ul{
+	> li:last-child ul{
 		left: auto;
-		right: 0;
+		right: 100%;
 	}
 	
 	li:hover > ul,

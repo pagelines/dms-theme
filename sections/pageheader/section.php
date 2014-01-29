@@ -96,7 +96,7 @@ class PLPageHeader extends PageLinesSection {
 	
 	function before_section_template( $location = '' ) {
 
-		$this->wrapper_classes['special'] = pl_get_area_classes('ph', $this, array('scroll' => 'pl-scroll-translate')); 
+		$this->wrapper_classes['special'] = pl_get_area_classes($this, array('scroll' => 'pl-scroll-translate'), 'ph'); 
 
 	}
 	
@@ -118,7 +118,8 @@ class PLPageHeader extends PageLinesSection {
 		
 		
 		?>
-		<div class="pl-ph-container pl-area-wrap  pl-animation pl-slidedown fix <?php echo join(' ', $container_class);?>" style="<?php echo $style; ?>">
+		<div class="pl-ph-container pl-area-wrap  pl-animation pl-slidedown fix <?php echo join(' ', $container_class);?>" style="<?php echo pl_get_area_styles($this);?>">
+			<?php pl_standard_video_bg($this); ?>
 			<div class="pl-end-height pl-content fix pl-centerer" style="">
 				<div class="ph-text">
 					<h2 class="ph-head" data-sync="ph_header"><?php echo $title; ?></h2>
