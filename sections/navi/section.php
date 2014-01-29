@@ -19,6 +19,11 @@ class PLNavi extends PageLinesSection {
 	
 	}
 
+	function section_persistent(){
+		register_nav_menus( array( 'navi_nav' => __( 'Navi Section', 'pagelines' ) ) );
+
+	}
+
 	function section_opts(){
 
 		$opts = array(
@@ -103,7 +108,7 @@ class PLNavi extends PageLinesSection {
 		</div>
 		<div class="navi-right">
 			<?php 
-				echo pl_navigation( array('menu' => $menu, 'menu_class'	=> 'inline-list pl-nav sf-menu') ); 
+				echo pl_navigation( array( 'theme_location' => 'navi_nav', 'menu' => $menu, 'menu_class'	=> 'inline-list pl-nav sf-menu') ); 
 				if( ! $hide_search )
 					pagelines_search_form( true, 'navi-searchform'); 
 			?>
