@@ -114,7 +114,7 @@ class PLPopShot extends PageLinesSection {
 
 				if( $image ){
 					$out .= sprintf(
-						'<div class="pl-animation pla-from-bottom popshot popshot-%s" style="margin-left: %s; z-index: %s; max-width: %s; max-height: %s;">%s<img src="%s" alt="" /></div>', 
+						'<div class="pl-animation pla-from-bottom popshot popshot-%s" style="margin-left: %s; z-index: %s; width: %s; max-height: %s;">%s<img src="%s" alt="" /></div>', 
 						$key, 
 						$offset, 
 						$index,
