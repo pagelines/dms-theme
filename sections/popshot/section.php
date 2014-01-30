@@ -96,12 +96,6 @@ class PLPopShot extends PageLinesSection {
 		return $options;
 
 	}
-	
-	function before_section_template( $location = '' ) {
-
-		$this->wrapper_classes['special'] = pl_get_area_classes( $this ); 
-
-	}
 
 
 	function get_content( $array ){
@@ -116,7 +110,7 @@ class PLPopShot extends PageLinesSection {
 				$offset = pl_array_get( 'offset', $item, '-300px' );
 				$index = pl_array_get( 'index', $item, '0' );
 				$width = pl_array_get( 'width', $item, '600px' );
-				$height = pl_array_get( 'height', $item, '280px' );
+				$height = pl_array_get( 'height', $item, '250px' );
 
 				if( $image ){
 					$out .= sprintf(
