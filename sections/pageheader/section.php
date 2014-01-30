@@ -86,17 +86,14 @@ class PLPageHeader extends PageLinesSection {
 					),
 				)			
 		); 
-		
-		$options[] = pl_get_background_options('ph', 3);
-		
-		
+
 		return $options;
 
 	}
 	
 	function before_section_template( $location = '' ) {
 
-		$this->wrapper_classes['special'] = pl_get_area_classes($this, array('scroll' => 'pl-scroll-translate'), 'ph'); 
+		$this->wrapper_classes['special'] = 'pl-scroll-translate'; 
 
 	}
 	
@@ -114,12 +111,9 @@ class PLPageHeader extends PageLinesSection {
 		$container_class[] = $this->opt('ph_format'); 
 		$container_class[] = $this->opt('ph_pad_class'); 
 		
-		$style =  ( $this->opt('ph_background') ) ? sprintf('background-image: url(%s);', $this->opt('ph_background')) : '';
-		
 		
 		?>
-		<div class="pl-ph-container pl-area-wrap  pl-animation pl-slidedown fix <?php echo join(' ', $container_class);?>" style="<?php echo pl_get_area_styles($this);?>">
-			<?php pl_standard_video_bg($this); ?>
+		<div class="pl-ph-container pl-area-wrap  pl-animation pl-slidedown fix <?php echo join(' ', $container_class);?>" >
 			<div class="pl-end-height pl-content fix pl-centerer" style="">
 				<div class="ph-text">
 					<h2 class="ph-head" data-sync="ph_header"><?php echo $title; ?></h2>

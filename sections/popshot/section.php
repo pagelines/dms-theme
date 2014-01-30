@@ -39,7 +39,7 @@ class PLPopShot extends PageLinesSection {
 						'type'	=> 'text_small',
 						'key'	=> 'popshot_height', 
 						'label'	=> 'Total Height of PopShot',
-						'place'	=> '350px'
+						'place'	=> '280px'
 					),
 				)
 				
@@ -76,7 +76,7 @@ class PLPopShot extends PageLinesSection {
 					'key'	=> 'height',
 					'label'	=> __( 'Maximum Height', 'pagelines' ),
 					'type'	=> 'text_small',
-					'place'	=> '250px',
+					'place'	=> '280px',
 					'help'	=> __( 'Max height from bottom in pixels.', 'pagelines' ),
 				),
 				array(
@@ -92,8 +92,7 @@ class PLPopShot extends PageLinesSection {
 			)
 	    );
 	
-		$options[] = pl_get_background_options('popshot', 3);
-
+		
 		return $options;
 
 	}
@@ -117,7 +116,7 @@ class PLPopShot extends PageLinesSection {
 				$offset = pl_array_get( 'offset', $item, '-300px' );
 				$index = pl_array_get( 'index', $item, '0' );
 				$width = pl_array_get( 'width', $item, '600px' );
-				$height = pl_array_get( 'height', $item, '250px' );
+				$height = pl_array_get( 'height', $item, '280px' );
 
 				if( $image ){
 					$out .= sprintf(
@@ -155,14 +154,12 @@ class PLPopShot extends PageLinesSection {
 		
 		$array = $this->opt('popshot_array');
 		
-		$height = ( $this->opt('popshot_height') ) ? $this->opt('popshot_height') : '350px';
+		$height = ( $this->opt('popshot_height') ) ? $this->opt('popshot_height') : '280px';
 		
-		$style =  ( $this->opt('popshot_background') ) ? sprintf('background-image: url(%s);', $this->opt('popshot_background')) : '';
 		
 	?>
 	
-	<div class="popshot-wrap <?php echo join( ' ', $classes );?>" style="height: <?php echo $height;?>; <?php echo pl_get_area_styles($this);?> ">
-		<?php pl_standard_video_bg($this); ?>
+	<div class="popshot-wrap <?php echo join( ' ', $classes );?>" style="height: <?php echo $height;?>;">
 		<div class="pl-animation-group">
 			<?php
 			
