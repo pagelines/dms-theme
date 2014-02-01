@@ -10,16 +10,20 @@ Object.keys = Object.keys || function(o) {
 jQuery(document).ready(function($){
 	
 	
-    var zoomLevel = parseFloat($('#contact-map').attr('data-zoom-level')) || 12
-    ,	centerlat = parseFloat($('#contact-map').attr('data-center-lat')) || 37.7830061
-	,	centerlng = parseFloat($('#contact-map').attr('data-center-lng')) || -122.3902466
-	,	markerImg = $('#contact-map').attr('data-marker-image')
-	,	enableZoom = true
-	,	enableAnimation = google.maps.Animation.BOUNCE 
+    var zoomLevel = parseFloat($('#pl-map').attr('data-zoom-level')) || 12
+    ,	centerlat = parseFloat($('#pl-map').attr('data-center-lat')) || 37.7830061
+	,	centerlng = parseFloat($('#pl-map').attr('data-center-lng')) || -122.3902466
+	,	markerImg = $('#pl-map').attr('data-marker-image')
+	,	enableZoom = $('#pl-map').attr('data-enable-zoom') || true
+	,	enableAnimation = $('#pl-map').attr('data-enable-animation') || false
 	,	animationDelay = 180
 	,	latLng = new google.maps.LatLng(centerlat,centerlng);
-    
-    
+   	if ( 1 == enableAnimation ){
+		enableAnimation = google.maps.Animation.BOUNCE
+	} else {
+		enableAnimation = false
+	}
+
 	var mapOptions = {
       center: latLng,
       zoom: zoomLevel,
@@ -36,8 +40,8 @@ jQuery(document).ready(function($){
 	  streetViewControl: false
 	  
     };
-	
-	var map = new google.maps.Map(document.getElementById("contact-map"), mapOptions);
+
+	var map = new google.maps.Map(document.getElementById("pl-map"), mapOptions);
 	
 	var infoWindows = [];
 	
@@ -63,16 +67,18 @@ jQuery(document).ready(function($){
 			
 			(function(i) {
 				setTimeout(function() {
+					
+					var image = (map_data[i].image) || markerImg
 				
 			      var marker = new google.maps.Marker({
 			      	position: new google.maps.LatLng(map_data[i].lat, map_data[i].lng),
 			        map: map,
 					infoWindowIndex : i - 1,
 					animation: enableAnimation,
-					icon: markerImg,
+					icon: image,
 					optimized: false
 			      });
-				  
+				  console.log(marker)
 				  setTimeout(function(){marker.setAnimation(null);},200);
 				  
 			      //infowindows 
