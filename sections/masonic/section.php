@@ -5,7 +5,7 @@
 	Author URI: http://www.pagelines.com
 	Description: A robust gallery section that includes sorting and lightboxing.
 	Class Name: PLMasonic
-	Filter: format
+	Filter: format, dual-width
 */
 
 class PLMasonic extends PageLinesSection {
@@ -19,6 +19,7 @@ class PLMasonic extends PageLinesSection {
 
 	function section_styles(){
 		wp_enqueue_script( 'isotope', PL_JS . '/utils.isotope.min.js', array('jquery'), pl_get_cache_key(), true);
+	//	wp_enqueue_script( 'isotope', PL_JS . '/utils.isotope2.js', array('jquery'), pl_get_cache_key(), true);
 		wp_enqueue_script( 'pl-masonic', $this->base_url.'/pl.masonic.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
@@ -248,7 +249,7 @@ class PLMasonic extends PageLinesSection {
 
 			<div class="masonic-wrap">
 
-				<ul class="masonic-gallery" data-scroll-speed="800" data-easing="easeInOutQuart" data-shown="<?php echo $shown;?>">
+				<ul class="masonic-gallery row row-closed " data-scroll-speed="800" data-easing="easeInOutQuart" data-shown="<?php echo $shown;?>">
 		<?php } ?>
 
 			<?php
@@ -261,66 +262,67 @@ class PLMasonic extends PageLinesSection {
 					
 					setup_postdata( $post ); 
 					
-					echo pl_grid_tool('row_start', $item_cols, $count, $total);
+				//	echo pl_grid_tool('row_start', $item_cols, $count, $total);
 					
 						?>
 
 
 			<li class="span3">
-
-				<div class="pl-grid-image fix">
-					<?php
-					if ( has_post_thumbnail() )
-						echo get_the_post_thumbnail( $post->ID, $sizes	, array('title' => ''));
-					else
-						printf('<img src="%s" alt="no image added yet." />', pl_default_image());
+				<div class="span-wrap pl-grid-wrap">
+					<div class="pl-grid-image fix">
+						<?php
+						if ( has_post_thumbnail() )
+							echo get_the_post_thumbnail( $post->ID, $sizes	, array('title' => ''));
+						else
+							printf('<img src="%s" alt="no image added yet." />', pl_default_image());
 					
 						
-						 ?>
+							 ?>
 
-					<div class="pl-grid-image-hover"></div>
+						<div class="pl-grid-image-hover"></div>
 					
-					<a class="pl-grid-image-info" href="<?php echo get_permalink();?>">
+						<a class="pl-grid-image-info" href="<?php echo get_permalink();?>">
 
-						<div class="pl-center-table"><div class="pl-center-cell">
-							<div class="info-text"><i class="icon-link"></i></div>
-						</div></div>
+							<div class="pl-center-table"><div class="pl-center-cell">
+								<div class="info-text"><i class="icon-link"></i></div>
+							</div></div>
 
-					</a>
-				</div><!--work-item-->
+						</a>
+					</div><!--work-item-->
 
-				<div class="pl-grid-content fix">
-					<div class="pl-grid-meta">
-						<?php if( ! $disable_show_love ) echo pl_love( $post->ID );?>
-					</div>
-					<div class="pl-grid-text">
-						<h4>
-							<a href="<?php echo get_permalink();?>">
-							<?php the_title(); ?>
-							</a>
-						</h4>
-						<div class="pl-grid-metabar">
-							<?php echo do_shortcode( apply_filters('pl_flipper_meta', $meta, $post->ID, pl_type_slug() )); ?>
+					<div class="pl-grid-content fix">
+						<div class="pl-grid-meta">
+							<?php if( ! $disable_show_love ) echo pl_love( $post->ID );?>
 						</div>
+						<div class="pl-grid-text">
+							<h4>
+								<a href="<?php echo get_permalink();?>">
+								<?php the_title(); ?>
+								</a>
+							</h4>
+							<div class="pl-grid-metabar">
+								<?php echo do_shortcode( apply_filters('pl_flipper_meta', $meta, $post->ID, pl_type_slug() )); ?>
+							</div>
 						
-						<?php if( $show_excerpt ): ?>
-						<div class="pl-grid-excerpt pl-border">
-							<?php the_excerpt();?>
+							<?php if( $show_excerpt ): ?>
+							<div class="pl-grid-excerpt pl-border">
+								<?php the_excerpt();?>
+							</div>
+							<?php endif;?>
 						</div>
-						<?php endif;?>
+					
+					
 					</div>
-					
-					
+
+
+					<div class="clear"></div>
 				</div>
-
-
-				<div class="clear"></div>
 
 			</li>
 
 <?php 
 
-			echo pl_grid_tool('row_end', $item_cols, $count, $total);
+			//echo pl_grid_tool('row_end', $item_cols, $count, $total);
 	
 			$count++;
 			endforeach; endif;
