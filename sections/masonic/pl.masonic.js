@@ -4,6 +4,8 @@
 		$('.masonic-gallery').each(function(){
 			
 	    	var element = $(this)
+			, 	format = element.data('format')
+			,	layoutMode = ( format == 'grid' ) ? 'fitRows' : 'masonry'
 			,	scrollSpeed
 			, 	easing
 			, 	shown = element.data('shown') || 3
@@ -18,10 +20,8 @@
 			//	resizable: false, 
 				itemSelector : 'li',
 				filter: '*',
-				layoutMode: 'fitRows',
-				masonry: { 
-					columnWidth: element.width() / parseInt( numberCols )
-				}
+				layoutMode: layoutMode,
+				
 			}).isotope( 'reLayout' );
 		
 		

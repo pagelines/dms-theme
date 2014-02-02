@@ -30,34 +30,35 @@ class PLMasonic extends PageLinesSection {
 
 		$options[] = array(
 
-			'title' => __( 'Flipper Setup', 'pagelines' ),
+			'title' => __( 'Config', 'pagelines' ),
 			'type'	=> 'multi',
 			'opts'	=> array(
 				array(
-					'key'			=> 'flipper_post_type',
+					'key'		=> $this->id.'_format',
+					'type'		=> 'select',
+					'label'		=> __( 'Gallery Format', 'pagelines' ),
+					'opts'			=> array(
+						'grid'		=> array('name' => __( 'Grid Mode', 'pagelines' ) ),
+						'masonry'	=> array('name' => __( 'Image/Masonry', 'pagelines' ) )
+					)
+				),
+				array(
+					'key'			=> $this->id.'_post_type',
 					'type' 			=> 'select',
 					'opts'			=> pl_get_thumb_post_types(),
 					'default'		=> 4,
-					'label' 	=> __( 'Which post type should Flipper use?', 'pagelines' ),
-					'help'		=> __( '<strong>Note</strong><br/> Post types for this section must have "featured images" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin to create custom post types for use with Flipper.', 'pagelines' ),
+					'label' 	=> __( 'Select Post Type', 'pagelines' ),
+					'help'		=> __( '<strong>Note</strong><br/> Post types for this section must have "featured images" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin to create custom post types for use.', 'pagelines' ),
 				),
 				array(
-					'key'			=> 'flipper_shown',
-					'type' 			=> 'count_select',
-					'count_start'	=> 1,
-					'count_number'	=> 6,
-					'default'		=> 3,
-					'label' 		=> __( 'Max Number of Posts Shown', 'pagelines' ),
-					'help'		=> __( 'This controls the maximum number of posts shown. A smaller amount may be shown based on layout width.', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'flipper_sizes',
+					'key'			=> $this->id.'_sizes',
 					'type' 			=> 'select_imagesizes',
 					'default'		=> 'large',
 					'label' 		=> __( 'Select Thumb Size', 'pagelines' )
 				),
+				
 				array(
-					'key'			=> 'flipper_total',
+					'key'			=> $this->id.'_total',
 					'type' 			=> 'count_select',
 					'count_start'	=> 5,
 					'count_number'	=> 20,
@@ -72,38 +73,15 @@ class PLMasonic extends PageLinesSection {
 
 		$options[] = array(
 
-			'title' => __( 'Flipper Content', 'pagelines' ),
+			'title' => __( 'Masonic Content', 'pagelines' ),
 			'type'	=> 'multi',
-			'help'		=> __( 'Options to control the text and link in the Flipper title.', 'pagelines' ),
+			'help'		=> __( 'Options to control the text and link in the Masonic title.', 'pagelines' ),
 			'opts'	=> array(
 				array(
-					'key'			=> 'flipper_title',
+					'key'			=> $this->id.'_meta',
 					'type' 			=> 'text',
-					'label' 		=> __( 'Flipper Title Text', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'flipper_hide_title_link',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Hide Title Link?', 'pagelines' ),
-
-				),
-				array(
-					'key'			=> 'flipper_meta',
-					'type' 			=> 'text',
-					'label' 		=> __( 'Flipper Meta', 'pagelines' ),
+					'label' 		=> __( 'Masonic Meta', 'pagelines' ),
 					'ref'			=> __( 'Use shortcodes to control the dynamic meta info. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' ),
-				),
-				array(
-					'key'			=> 'flipper_show_excerpt',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Show excerpt?', 'pagelines' ),
-
-				),
-				array(
-					'key'			=> 'disable_flipper_show_love',
-					'type' 			=> 'check',
-					'label' 	=> __( 'Disable love button/count?', 'pagelines' ),
-
 				),
 				
 
@@ -114,7 +92,7 @@ class PLMasonic extends PageLinesSection {
 
 	
 		$options[] = array(
-			'key'		=> 'flipper_post_sort',
+			'key'		=> $this->id.'_post_sort',
 			'type'		=> 'select',
 			'label'		=> __( 'Sort elements by postdate', 'pagelines' ),
 			'default'	=> 'DESC',
@@ -127,24 +105,24 @@ class PLMasonic extends PageLinesSection {
 		
 		$selection_opts = array(
 			array(
-				'key'			=> 'flipper_meta_key',
+				'key'			=> $this->id.'_meta_key',
 				'type' 			=> 'text',
 
 				'label' 	=> __( 'Meta Key', 'pagelines' ),
 				'help'		=> __( 'Select only posts which have a certain meta key and corresponding meta value. Useful for featured posts, or similar.', 'pagelines' ),
 			),
 			array(
-				'key'			=> 'flipper_meta_value',
+				'key'			=> $this->id.'_meta_value',
 				'type' 			=> 'text',
 
 				'label' 	=> __( 'Meta Key Value', 'pagelines' ),
 			),
 		);
 		
-		if($this->opt('flipper_post_type') == 'post'){
+		if($this->opt($this->id.'_post_type') == 'post'){
 			$selection_opts[] = array(
 				'label'			=> 'Post Category',
-				'key'			=> 'flipper_category', 
+				'key'			=> $this->id.'_category', 
 				'type'			=> 'select_taxonomy', 
 				'post_type'		=> 'post', 
 				'help'		=> __( 'Only applies for standard blog posts.', 'pagelines' ),
@@ -170,30 +148,27 @@ class PLMasonic extends PageLinesSection {
 	function section_template(  ) {
 
 		global $post;
-		$post_type = ($this->opt('flipper_post_type')) ? $this->opt('flipper_post_type') : 'post';
+		
+		$format = ( $this->opt( $this->id.'_format' ) ) ? $this->opt( $this->id.'_format' ) : 'image';
+		
+		$gutter_class = ( $format == 'grid' ) ? 'with-gutter' : '';
+		
+		$post_type = ($this->opt($this->id.'_post_type')) ? $this->opt($this->id.'_post_type') : 'post';
 
 		$pt = get_post_type_object($post_type);
 
-		$shown = ($this->opt('flipper_shown')) ? $this->opt('flipper_shown') : '3';
+		$total = ($this->opt($this->id.'_total')) ? $this->opt($this->id.'_total') : '10';
 
-		$total = ($this->opt('flipper_total')) ? $this->opt('flipper_total') : '10';
-
-		$title = ($this->opt('flipper_title')) ? $this->opt('flipper_title') : $pt->label;
-
-		$hide_link = ($this->opt('flipper_hide_title_link')) ? $this->opt('flipper_hide_title_link') : false;
-
-		$show_excerpt = ($this->opt('flipper_show_excerpt')) ? $this->opt('flipper_show_excerpt') : false;
-		$disable_show_love = ($this->opt('disable_flipper_show_love')) ? true : false;
 		
 
-		$meta = ($this->opt('flipper_meta')) ? $this->opt('flipper_meta') : '[post_date] [post_edit]';
+		$meta = ($this->opt($this->id.'_meta')) ? $this->opt($this->id.'_meta') : '[post_date] [post_edit]';
 
-		$sizes = ($this->opt('flipper_sizes')) ? $this->opt('flipper_sizes') : 'aspect-thumb';
+		$sizes = ($this->opt($this->id.'_sizes')) ? $this->opt($this->id.'_sizes') : 'aspect-thumb';
 	
 
-		$sorting = ($this->opt('flipper_post_sort')) ? $this->opt('flipper_post_sort') : 'DESC';
+		$sorting = ($this->opt($this->id.'_post_sort')) ? $this->opt($this->id.'_post_sort') : 'DESC';
 
-		$orderby = ( 'rand' == $this->opt('flipper_post_sort') ) ? 'rand' : 'date'; 
+		$orderby = ( 'rand' == $this->opt($this->id.'_post_sort') ) ? 'rand' : 'date'; 
 
 		$the_query = array(
 			'posts_per_page' 	=> $total,
@@ -202,13 +177,13 @@ class PLMasonic extends PageLinesSection {
 			'order'            => $sorting,
 		);
 
-		if( $this->opt('flipper_meta_key') && $this->opt('flipper_meta_key') != '' && $this->opt('flipper_meta_value') ){
-			$the_query['meta_key'] = $this->opt('flipper_meta_key');
-			$the_query['meta_value'] = $this->opt('flipper_meta_value');
+		if( $this->opt($this->id.'_meta_key') && $this->opt($this->id.'_meta_key') != '' && $this->opt($this->id.'_meta_value') ){
+			$the_query['meta_key'] = $this->opt($this->id.'_meta_key');
+			$the_query['meta_value'] = $this->opt($this->id.'_meta_value');
 		}
 		
-		if( $this->opt('flipper_category') && $this->opt('flipper_category') != '' ){
-			$cat = get_category_by_slug( $this->opt('flipper_category') ); 
+		if( $this->opt($this->id.'_category') && $this->opt($this->id.'_category') != '' ){
+			$cat = get_category_by_slug( $this->opt($this->id.'_category') ); 
 			$the_query['category'] = $cat->term_id;
 		}
 
@@ -217,39 +192,11 @@ class PLMasonic extends PageLinesSection {
 
 		if(!empty($posts)) { setup_postdata( $post ); ?>
 
-				<div class="flipper-heading">
-					<div class="flipper-title pl-standard-title">
-					
-
-						<?php
-							echo $title;
-
-
-							$archive_link = get_post_type_archive_link( $post_type );
-
-							if( $archive_link && !$hide_link ){
-								printf( '<a href="%s" > %s</a>',
-									$archive_link,
-									__(' / View All', 'pagelines')
-								);
-							} else if ($post_type == 'post' && get_option( 'page_for_posts') && !is_home()){
-								printf( '<a href="%s" > %s</a>',
-									get_page_uri( get_option( 'page_for_posts') ),
-									__(' / View Blog', 'pagelines')
-								);
-							}
-
-							?>
-
-					</div>
-					<a class="flipper-prev pl-contrast" href="#"><i class="icon-angle-left"></i></a>
-			    	<a class="flipper-next pl-contrast" href="#"><i class="icon-angle-right"></i></a>
-				
-				</div>
+			
 
 			<div class="masonic-wrap">
 
-				<ul class="masonic-gallery row row-closed " data-scroll-speed="800" data-easing="easeInOutQuart" data-shown="<?php echo $shown;?>">
+				<ul class="masonic-gallery row row-closed <?php echo $gutter_class;?>"  data-shown="<?php echo $shown;?>" data-format="<?php echo $format;?>">
 		<?php } ?>
 
 			<?php
@@ -284,36 +231,45 @@ class PLMasonic extends PageLinesSection {
 						<a class="pl-grid-image-info" href="<?php echo get_permalink();?>">
 
 							<div class="pl-center-table"><div class="pl-center-cell">
-								<div class="info-text"><i class="icon-link"></i></div>
+								
+								<?php if( $format == 'masonry' ): ?>
+									<h4>
+										<?php the_title(); ?>
+									</h4>
+									<div class="metabar">
+										<?php  echo do_shortcode( '[post_date]' ); ?>
+									</div>
+								<?php else: ?>
+									<div class="info-text"><i class="icon-link"></i></div>
+								<?php endif;?>
 							</div></div>
 
 						</a>
 					</div><!--work-item-->
 
-					<div class="pl-grid-content fix">
-						<div class="pl-grid-meta">
-							<?php if( ! $disable_show_love ) echo pl_love( $post->ID );?>
-						</div>
-						<div class="pl-grid-text">
-							<h4>
-								<a href="<?php echo get_permalink();?>">
-								<?php the_title(); ?>
-								</a>
-							</h4>
-							<div class="pl-grid-metabar">
-								<?php echo do_shortcode( apply_filters('pl_flipper_meta', $meta, $post->ID, pl_type_slug() )); ?>
+					<?php if( $format == 'grid' ) : ?>
+						<div class="pl-grid-content fix">
+							<div class="pl-grid-meta">
+								<?php if( ! $disable_show_love ) echo pl_love( $post->ID );?>
 							</div>
+							<div class="pl-grid-text">
+								<h4>
+									<a href="<?php echo get_permalink();?>">
+									<?php the_title(); ?>
+									</a>
+								</h4>
+								<div class="pl-grid-metabar">
+									<?php echo do_shortcode( $meta ); ?>
+								</div>
 						
-							<?php if( $show_excerpt ): ?>
-							<div class="pl-grid-excerpt pl-border">
-								<?php the_excerpt();?>
+								<?php if( $show_excerpt ): ?>
+								<div class="pl-grid-excerpt pl-border">
+									<?php the_excerpt();?>
+								</div>
+								<?php endif;?>
 							</div>
-							<?php endif;?>
 						</div>
-					
-					
-					</div>
-
+					<?php endif;?>
 
 					<div class="clear"></div>
 				</div>
