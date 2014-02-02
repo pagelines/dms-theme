@@ -11,9 +11,13 @@
 				 animation:   {opacity:'show'}
 			});
 			
-			$(this)
-				.find('.sf-with-ul')
-				.append('<span class="sub-indicator"><i class="icon-angle-down"></i></span>')
+			var offset = $(this).data('offset') || false
+			
+			if( offset ){
+				$(this)
+					.find('> li > ul')
+					.css('top', offset)
+			}
 			
 			$(this).find('.megamenu').each(function(){
 				var cols = $(this).find('> .sub-menu > li').length
