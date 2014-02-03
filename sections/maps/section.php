@@ -5,7 +5,7 @@
 	Author URI: http://www.pagelines.com
 	Description: Google maps with markers.
 	Class Name: PLMaps
-	Filter: component
+	Filter: component, dual-width
 	Loading: active
 */
 

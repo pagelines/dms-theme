@@ -78,6 +78,13 @@ class PLNavi extends PageLinesSection {
 						'key'	=> 'navi_search', 
 						'type'	=> 'check',
 						'label'	=> 'Hide Search?',
+					),
+					array(
+						'key'	=> 'navi_offset', 
+						'type'	=> 'text_small',
+						'place'	=> '100%',
+						'label'	=> 'Dropdown offset from top of nav (optional)',
+						'help'	=> 'Default is 100% aligned to bottom. Can be PX or %.'
 					)
 				)
 				
@@ -98,6 +105,7 @@ class PLNavi extends PageLinesSection {
 
 		$logo = ( $this->opt('navi_logo') ) ? $this->opt('navi_logo') : pl_get_theme_logo(); 
 		$menu = ( $this->opt('navi_menu') ) ? $this->opt('navi_menu') : false;
+		$offset = ( $this->opt('navi_offset') ) ? sprintf( 'data-offset="%s"', $this->opt('navi_offset') ) : false;
 		$hide_search = ( $this->opt('navi_search') ) ? true : false; 
 		$class = ( $this->meta['draw'] == 'area' ) ? 'pl-content' : ''; 
 
@@ -108,7 +116,16 @@ class PLNavi extends PageLinesSection {
 		</div>
 		<div class="navi-right">
 			<?php 
-				echo pl_navigation( array( 'theme_location' => 'navi_nav', 'menu' => $menu, 'menu_class'	=> 'inline-list pl-nav sf-menu') ); 
+			
+				$menu_args = array( 
+					'theme_location' => 'navi_nav', 
+					'menu' => $menu, 
+					'menu_class'	=> 'inline-list pl-nav sf-menu', 
+					'attr'			=> $offset,
+					'walker' => new PageLines_Walker_Nav_Menu
+				);
+				echo pl_navigation( $menu_args ); 
+				
 				if( ! $hide_search )
 					pagelines_search_form( true, 'navi-searchform'); 
 			?>
@@ -123,4 +140,25 @@ class PLNavi extends PageLinesSection {
 	</div>
 <?php }
 
+}
+
+// Adds arrows and classes
+class PageLines_Walker_Nav_Menu extends Walker_Nav_Menu {
+	
+    function display_element($element, &$children_elements, $max_depth, $depth=0, $args, &$output) {
+      
+  		$id_field = $this->db_fields['id'];
+
+        if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent == 0) { 
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-down"></i></span>'; 
+			$element->classes[] = 'sf-with-ul';
+			
+        }
+		
+		if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent != 0) { 
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-right"></i></span>'; 
+        }
+
+        Walker_Nav_Menu::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+    }
 }
