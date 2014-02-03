@@ -196,7 +196,7 @@ class PLMasonic extends PageLinesSection {
 
 			<div class="masonic-wrap">
 
-				<ul class="masonic-gallery row row-closed <?php echo $gutter_class;?>"  data-shown="<?php echo $shown;?>" data-format="<?php echo $format;?>">
+				<ul class="masonic-gallery row row-closed <?php echo $gutter_class;?> no-transition"  data-format="<?php echo $format;?>">
 		<?php } ?>
 
 			<?php
