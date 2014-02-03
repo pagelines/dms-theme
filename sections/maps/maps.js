@@ -8,14 +8,13 @@ Object.keys = Object.keys || function(o) {
 };
 
 jQuery(document).ready(function($){
-	
-	
-    var zoomLevel = parseFloat($('#pl-map').attr('data-zoom-level')) || 12
-    ,	centerlat = parseFloat($('#pl-map').attr('data-center-lat')) || 37.7830061
-	,	centerlng = parseFloat($('#pl-map').attr('data-center-lng')) || -122.3902466
-	,	markerImg = $('#pl-map').attr('data-marker-image')
-	,	enableZoom = $('#pl-map').attr('data-enable-zoom') || true
-	,	enableAnimation = $('#pl-map').attr('data-enable-animation') || false
+console.log(map_main.zoom_enable)	
+    var zoomLevel = parseFloat(map_main.zoom_level) || 12
+    ,	centerlat = parseFloat(map_main.lat) || 37.7830061
+	,	centerlng = parseFloat(map_main.lng) || -122.3902466
+	,	markerImg = map_main.image
+	,	enableZoom = map_main.zoom_enable || true
+	,	enableAnimation = map_main.enable_animation || true
 	,	animationDelay = 180
 	,	latLng = new google.maps.LatLng(centerlat,centerlng);
    	if ( 1 == enableAnimation ){
@@ -76,15 +75,14 @@ jQuery(document).ready(function($){
 					infoWindowIndex : i - 1,
 					animation: enableAnimation,
 					icon: image,
-					optimized: false
+					optimized: true
 			      });
-				  console.log(marker)
 				  setTimeout(function(){marker.setAnimation(null);},200);
 				  
 			      //infowindows 
 			      var infowindow = new google.maps.InfoWindow({
 			   	    content: map_data[i].mapinfo,
-			    	maxWidth: 300
+			    	maxWidth: 400
 				  });
 				  
 				  infoWindows.push(infowindow);
