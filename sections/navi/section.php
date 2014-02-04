@@ -3,7 +3,7 @@
 	Section: Navi
 	Author: PageLines
 	Author URI: http://www.pagelines.com
-	Description: A stylized navigation bar with multiple modes and styles. 
+	Description: A stylized navigation bar with multiple modes and styles.
 	Class Name: PLNavi
 	Filter: nav, dual-width
 */
@@ -16,7 +16,7 @@ class PLNavi extends PageLinesSection {
 
 		wp_enqueue_script( 'superfish', $this->base_url.'/superfish.js', array( 'jquery' ), pl_get_cache_key(), true );
 		wp_enqueue_script( 'pl-navi', $this->base_url.'/pl.navi.js', array( 'superfish' ), pl_get_cache_key(), true );
-	
+
 	}
 
 	function section_persistent(){
@@ -29,67 +29,67 @@ class PLNavi extends PageLinesSection {
 		$opts = array(
 			// array(
 			// 				'type'	=> 'multi',
-			// 				'key'	=> 'navi_format', 
+			// 				'key'	=> 'navi_format',
 			// 				'title'	=> 'Navboard Format and Formatting',
 			// 				'opts'	=> array(
 			// 					array(
 			// 						'type'	=> 'select',
-			// 						'key'	=> 'navi_format', 
+			// 						'key'	=> 'navi_format',
 			// 						'label'	=> 'Select Format',
 			// 						'opts'	=> array(
 			// 							'center_logo'	=> array( 'name' => 'Logo Center, Pop out menu' ),
 			// 							'left_logo'		=> array( 'name' => 'Logo Left, standard menu' ),
-			// 						), 
-			// 
+			// 						),
+			//
 			// 					)
 			// 				)
-			// 				
+			//
 			// 			),
 			array(
 				'type'	=> 'multi',
-				'key'	=> 'navi_content', 
+				'key'	=> 'navi_content',
 				'title'	=> 'Logo',
 				'col'	=> 1,
 				'opts'	=> array(
 					array(
 						'type'	=> 'image_upload',
-						'key'	=> 'navi_logo', 
+						'key'	=> 'navi_logo',
 						'label'	=> 'Navboard Logo',
 						'opts'	=> array(
 							'center_logo'	=> 'Center: Logo | Right: Pop Menu | Left: Site Search',
 							'left_logo'		=> 'Left: Logo | Right: Standard Menu',
-						), 
+						),
 					),
 				)
-				
+
 			),
 			array(
 				'type'	=> 'multi',
-				'key'	=> 'navi_nav', 
+				'key'	=> 'navi_nav',
 				'title'	=> 'Navigation',
 				'col'	=> 2,
 				'opts'	=> array(
 					array(
-						'key'	=> 'navi_menu', 
+						'key'	=> 'navi_menu',
 						'type'	=> 'select_menu',
 						'label'	=> 'Select Menu',
 					),
 					array(
-						'key'	=> 'navi_search', 
+						'key'	=> 'navi_search',
 						'type'	=> 'check',
 						'label'	=> 'Hide Search?',
 					),
 					array(
-						'key'	=> 'navi_offset', 
+						'key'	=> 'navi_offset',
 						'type'	=> 'text_small',
 						'place'	=> '100%',
 						'label'	=> 'Dropdown offset from top of nav (optional)',
 						'help'	=> 'Default is 100% aligned to bottom. Can be PX or %.'
 					)
 				)
-				
+
 			)
-			
+
 
 		);
 
@@ -103,11 +103,11 @@ class PLNavi extends PageLinesSection {
    function section_template( $location = false ) {
 
 
-		$logo = ( $this->opt('navi_logo') ) ? $this->opt('navi_logo') : pl_get_theme_logo(); 
+		$logo = $this->opt('navi_logo', array( 'default' => pl_get_theme_logo() ) );
 		$menu = ( $this->opt('navi_menu') ) ? $this->opt('navi_menu') : false;
 		$offset = ( $this->opt('navi_offset') ) ? sprintf( 'data-offset="%s"', $this->opt('navi_offset') ) : false;
-		$hide_search = ( $this->opt('navi_search') ) ? true : false; 
-		$class = ( $this->meta['draw'] == 'area' ) ? 'pl-content' : ''; 
+		$hide_search = ( $this->opt('navi_search') ) ? true : false;
+		$class = ( $this->meta['draw'] == 'area' ) ? 'pl-content' : '';
 
 	?>
 	<div class="navi-wrap <?php echo $class; ?> fix">
@@ -115,28 +115,28 @@ class PLNavi extends PageLinesSection {
 			<a href="<?php echo home_url();?>"><img src="<?php echo $logo; ?>" /></a>
 		</div>
 		<div class="navi-right">
-			<?php 
-			
-				$menu_args = array( 
-					'theme_location' => 'navi_nav', 
-					'menu' => $menu, 
-					'menu_class'	=> 'inline-list pl-nav sf-menu', 
+			<?php
+
+				$menu_args = array(
+					'theme_location' => 'navi_nav',
+					'menu' => $menu,
+					'menu_class'	=> 'inline-list pl-nav sf-menu',
 					'attr'			=> $offset,
 					'walker' => new PageLines_Walker_Nav_Menu
 				);
-				echo pl_navigation( $menu_args ); 
-				
+				echo pl_navigation( $menu_args );
+
 				if( ! $hide_search )
-					pagelines_search_form( true, 'navi-searchform'); 
+					pagelines_search_form( true, 'navi-searchform');
 			?>
-			
+
 		</div>
 		<div class="navi-left navi-search">
-			
+
 		</div>
-		
-		
-		
+
+
+
 	</div>
 <?php }
 
@@ -144,19 +144,19 @@ class PLNavi extends PageLinesSection {
 
 // Adds arrows and classes
 class PageLines_Walker_Nav_Menu extends Walker_Nav_Menu {
-	
+
     function display_element($element, &$children_elements, $max_depth, $depth=0, $args, &$output) {
-      
+
   		$id_field = $this->db_fields['id'];
 
-        if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent == 0) { 
-            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-down"></i></span>'; 
+        if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent == 0) {
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-down"></i></span>';
 			$element->classes[] = 'sf-with-ul';
-			
+
         }
-		
-		if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent != 0) { 
-            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-right"></i></span>'; 
+
+		if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent != 0) {
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-right"></i></span>';
         }
 
         Walker_Nav_Menu::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
