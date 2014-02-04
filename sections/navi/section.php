@@ -55,6 +55,7 @@ class PLNavi extends PageLinesSection {
 						'type'	=> 'image_upload',
 						'key'	=> 'navi_logo',
 						'label'	=> 'Navboard Logo',
+						'has_alt'	=> true,
 						'opts'	=> array(
 							'center_logo'	=> 'Center: Logo | Right: Pop Menu | Left: Site Search',
 							'left_logo'		=> 'Left: Logo | Right: Standard Menu',
@@ -102,8 +103,6 @@ class PLNavi extends PageLinesSection {
 	*/
    function section_template( $location = false ) {
 
-
-		$logo = $this->opt('navi_logo', array( 'default' => pl_get_theme_logo() ) );
 		$menu = ( $this->opt('navi_menu') ) ? $this->opt('navi_menu') : false;
 		$offset = ( $this->opt('navi_offset') ) ? sprintf( 'data-offset="%s"', $this->opt('navi_offset') ) : false;
 		$hide_search = ( $this->opt('navi_search') ) ? true : false;
@@ -112,7 +111,7 @@ class PLNavi extends PageLinesSection {
 	?>
 	<div class="navi-wrap <?php echo $class; ?> fix">
 		<div class="navi-left navi-container">
-			<a href="<?php echo home_url();?>"><img src="<?php echo $logo; ?>" /></a>
+			<a href="<?php echo home_url();?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo() ); ?></a>
 		</div>
 		<div class="navi-right">
 			<?php
