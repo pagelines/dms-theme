@@ -12,13 +12,13 @@
 	}
 	.cite,
 	cite{
-		padding-top: 20px;
+		opacity: .3;
 		font-size: 17px;
 		display: inline-block;
 	}
 	.quovolve-nav{
 		text-align: center;
-		padding-bottom: 15px;
+		padding-top: 25px;
 		> .nav-prev,
 		> .nav-next, 
 		> ol{
@@ -55,18 +55,19 @@
 }
 .quovolve-nav li.avatar-nav{
 	margin: 0 7px;
-	&:hover a,
+	&:hover a{
+		opacity: .6;
+	}
 	&.active a{
 		opacity: 1;
-	//	.translate(0, -5px);
+		.translate(0, -5px);
 	}
 	a{
 		.transition(all .1s);
-		box-shadow: 0 1px 1px rgba(0,0,0,.2);
 		.background-size(cover);
 		height: 50px;
 		width: 50px;
-		opacity: .5;
+		//opacity: .5;
 		border-radius: 100px;
 	}
 }

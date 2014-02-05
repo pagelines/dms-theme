@@ -16,7 +16,7 @@
 				autoPlay : auto,
 				autoPlaySpeed: speed,
 				equalHeight : height_set,
-			//	navPosition : 'below',
+				navPosition : 'below',
 				navPrev     : false,
 				navNext     : false,
 				navNum      : true,
