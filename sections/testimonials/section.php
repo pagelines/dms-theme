@@ -143,8 +143,9 @@ class PLTestimonials extends PageLinesSection {
 		  		<li <?php echo $avatar_data;?> >
 				    <blockquote>
 				    	<p><?php echo $text; ?></p>
-				    	<cite><?php echo $cite; ?></cite>
+				    	
 				    </blockquote>
+				<cite><?php echo $cite; ?></cite>
 				  </li>
 			<?php endforeach; ?>
 		  
