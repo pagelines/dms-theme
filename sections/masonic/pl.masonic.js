@@ -8,9 +8,37 @@
 		plMasonryLayout()
 		$(window).resize( plMasonryLayout )
 	
+		$('.masonic-nav a').click(function(e){
+			 e.preventDefault()
+			
+			
+			var theLink = $(this)
+			,	theFilter = theLink.text()
+			// highlight
+			$('.masonic-nav li').removeClass('pl-link active')
+			theLink.parent().addClass('pl-link active')
+			
+			
+			// title text
+			$('.masonic-title').text( theFilter )
+			
+			 //add css animation only for sorting
+				var clearIsoAnimation = null;
+			  clearTimeout(clearIsoAnimation);
+			  $('.isotope, .isotope .isotope-item').css('transition-duration','0.7s');
+			  clearIsoAnimation = setTimeout(function(){  $('.isotope, .isotope .isotope-item').css('transition-duration','0s'); },700);	 
+			
+			var selector = $(this).attr('data-filter')
+			, 	theIsotope = $(this).closest('.masonic-wrap').find('.isotope')
+			
+			theIsotope
+				.isotope({ filter: selector })
+			
+			return false;
+		})
 	    
 		
-		function plMasonryLayout( masonicElement ){
+		function plMasonryLayout( ){
 			
 				var element = $(this)
 				, 	format = element.data('format')
