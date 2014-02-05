@@ -327,7 +327,7 @@ class PLMasonic extends PageLinesSection {
 					<?php if( $format == 'grid' ) : ?>
 						<div class="pl-grid-content fix">
 							<div class="pl-grid-meta">
-								<?php if( ! $disable_show_love ) echo pl_love( $post->ID );?>
+								<?php if( ! $disable_show_love ) echo pl_karma( $post->ID );?>
 							</div>
 							<div class="pl-grid-text">
 								<h4>

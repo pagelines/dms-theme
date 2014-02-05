@@ -71,6 +71,12 @@ class PLNavi extends PageLinesSection {
 				'col'	=> 2,
 				'opts'	=> array(
 					array(
+						'key'	=> 'navi_help',
+						'type'	=> 'help_important',
+						'label'	=> 'Using Megamenus (multi column drop down)',
+						'help'	=> 'Want a full width, multi column "mega menu"? Simply add a class of "megamenu" to the list items using the WP menu creation tool.'
+					),
+					array(
 						'key'	=> 'navi_menu',
 						'type'	=> 'select_menu',
 						'label'	=> 'Select Menu',
@@ -86,7 +92,8 @@ class PLNavi extends PageLinesSection {
 						'place'	=> '100%',
 						'label'	=> 'Dropdown offset from top of nav (optional)',
 						'help'	=> 'Default is 100% aligned to bottom. Can be PX or %.'
-					)
+					), 
+					
 				)
 
 			)

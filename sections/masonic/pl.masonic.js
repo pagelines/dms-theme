@@ -72,9 +72,7 @@
 						masonrySetup = {
 							columnWidth: parseInt( galWidth / numCols )
 						}
-						console.log(galWidth / numCols)
-						console.log(masonrySetup)
-			
+						
 		
 						$(this).isotope({
 							resizable: false, 
