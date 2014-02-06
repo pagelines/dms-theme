@@ -121,12 +121,12 @@ class PLSocialinks extends PageLinesSection {
 			$url = ( pl_setting('sl_'.$icon) ) ? pl_setting('sl_'.$icon) : false;
 		
 			if( $url )
-				printf('<a href="%s" class="sl-link" %s><i class="icon-%s"></i></a>', $url, $target, $icon); 
+				printf('<a href="%s" class="sl-link" %s><i class="icon icon-%s"></i></a>', $url, $target, $icon); 
 		}
 		
 		if( pl_setting('sl_web') ){
 			
-			?><span class="sl-web-links"><a class="sl-link"  title="CSS3 Valid"><i class="icon-css3"></i></a><a class="sl-link" title="HTML5 Valid"><i class="icon-html5"></i></a><a class="sl-link" href="http://www.pagelines.com" title="Built with PageLines DMS"><i class="icon-pagelines"></i></a>
+			?><span class="sl-web-links"><a class="sl-link"  title="CSS3 Valid"><i class="icon icon-css3"></i></a><a class="sl-link" title="HTML5 Valid"><i class="icon icon-html5"></i></a><a class="sl-link" href="http://www.pagelines.com" title="Built with PageLines DMS"><i class="icon icon-pagelines"></i></a>
 			</span>
 			<?php 
 			
