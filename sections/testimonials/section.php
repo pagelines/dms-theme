@@ -6,7 +6,6 @@
 	Description: List testimonials with quotes, links and gravatar images.
 	Class Name: PLTestimonials
 	Filter: social
-	Loading: active
 */
 
 class PLTestimonials extends PageLinesSection {
@@ -127,11 +126,15 @@ class PLTestimonials extends PageLinesSection {
 		>
 		  <ul class="pl-testimonials">
 			
-			<?php foreach( $item_array as $item ): 
+			<?php 
+				$count = 1;
+				foreach( $item_array as $item ): 
 				
 					$text = pl_array_get( 'text', $item ); 
 					$cite = pl_array_get( 'cite', $item );
 					$email = pl_array_get( 'email', $item );
+					
+					$cite = ( $cite ) ? sprintf('<cite>%s</cite>', $cite) : '';
 					
 					if( $text == '')
 						continue;
@@ -142,12 +145,12 @@ class PLTestimonials extends PageLinesSection {
 				?>
 		  		<li <?php echo $avatar_data;?> >
 				    <blockquote>
-				    	<p><?php echo $text; ?></p>
+				    	<p data-sync="<?php printf('pl_testimonial_array_item%s_text', $count);?>"><?php echo $text; ?></p>
 				    	
 				    </blockquote>
-				<cite><?php echo $cite; ?></cite>
+					<?php echo $cite; ?>
 				  </li>
-			<?php endforeach; ?>
+			<?php $count++; endforeach; ?>
 		  
 		  </ul>
 		</div><!-- .quotes -->
