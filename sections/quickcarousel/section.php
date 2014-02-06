@@ -39,6 +39,12 @@ class PLQuickCarousel extends PageLinesSection {
 							'browser'	=> array( 'name' => 'Faux Browser Wrap (for screenshots)'),
 						), 
 					),
+					array(
+						'type'	=> 'text_small',
+						'key'	=> 'max', 
+						'label'	=> 'Max Items',
+						'default'	=> 6
+					),
 				)
 				
 			);
@@ -78,15 +84,20 @@ class PLQuickCarousel extends PageLinesSection {
 		if( is_array( $array ) ){
 			foreach( $array as $key => $item ){
 				$image = pl_array_get( 'image', $item ); 
+				$image_id = pl_array_get( 'image_attach_id', $item ); 
 				$link = pl_array_get( 'link', $item );
 			
 				if( $image ){
 					
-					$image = ( $link ) ? sprintf('<a href="%s"><img src="%s" alt="" /></a>', $link, $image) : sprintf('<img src="%s" alt="" />', $image);
+					$image_meta = wp_get_attachment_image_src( $image_id, 'aspect-thumb' );
+					
+					$image_url = (isset($image_meta[0])) ? $image_meta[0] : $image;
+				
+					$image_out = ( $link ) ? sprintf('<a href="%s"><img src="%s" alt="" /></a>', $link, $image_url) : sprintf('<img src="%s" alt="" />', $image_url);
 					
 					$out .= sprintf(
 						'<li class="pl-animation pla-from-bottom carousel-item span2" style="">%s</li>', 
-						$image
+						$image_out
 					);
 				}
 
@@ -101,7 +112,7 @@ class PLQuickCarousel extends PageLinesSection {
 	
 		$classes = array(); 
 		
-		
+		$max = ($this->opt('max')) ? $this->opt('max') : 6;
 		$format = $this->opt('format');
 		$classes[] = 'format-'.$format;
 		
@@ -109,7 +120,7 @@ class PLQuickCarousel extends PageLinesSection {
 	
 	?>
 	
-	<div class="pl-quickcarousel <?php echo join( ' ', $classes );?> pl-animation-group row row-closed">
+	<div class="pl-quickcarousel <?php echo join( ' ', $classes );?> pl-animation-group row row-closed" data-max="<?php echo $max;?>">
 	
 		<?php
 

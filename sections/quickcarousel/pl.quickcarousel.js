@@ -4,23 +4,29 @@
 		
     	
 		$('.pl-quickcarousel').each(function(){
-	    	var $that = $(this);
-	    	var columns; 
-	    	(parseInt($(this).attr('data-max'))) ? columns = parseInt($(this).attr('data-max')) : columns = 5;
-	    	if($(window).width() < 690 && $('body').attr('data-responsive') == '1') { columns = 2; $(this).addClass('phone') }
+			
+	    	var theCarousel = $(this)
+	    	var columns = (parseInt(theCarousel.attr('data-max'))) ?  parseInt(theCarousel.attr('data-max')) :  5;
+	
+	    	if($(window).width() < 690 && $('body').attr('data-responsive') == '1') { 
+				columns = 2; 
+				theCarousel.addClass('phone') 
+			}
 
-	    	var $element = $that;
-			if($that.find('img').length == 0) $element = $('body');
+			if(theCarousel.find('img').length == 0) theCarousel = $('body');
 
-			$element.imagesLoaded( function(instance){
-
-		    	$that.carouFredSel({
+			theCarousel.imagesLoaded( function(instance){
+				var tallestImage = 0
+				theCarousel.find( '> li' ).each(function(){
+					tallestImage = ($(this).height() > tallestImage) ?  $(this).height() : tallestImage;
+				});
+				
+		    	theCarousel.carouFredSel({
+						width: "100%",
+					  	height: "auto",
 			    		circular: true,
 			    		responsive: true, 
 				        items       : {
-
-							height : $that.find('> li:first').height(),
-							width  : $that.find('> li:first').width(),
 					        visible     : {
 					            min         : 1,
 					            max         : columns
@@ -38,34 +44,46 @@
 					    },
 					    auto    : {
 					    	play            : true,
-					    	timeoutDuration : 2700
+					    	timeoutDuration : 3000
 					    }
-			    }).animate({'opacity': 1},1300);
+			    })
 
-			    $that.parents('.carousel-wrap').wrap('<div class="carousel-outer">');
+			    theCarousel
+					.parents('.carousel-wrap')
+					.wrap('<div class="carousel-outer">');
 
-			    //cients carousel height
-		  		$(window).resize(function(){
-
-		  			var tallestImage = 0;
-
-			    	 $('.pl-quickcarousel').each(function(){
-
-			    	 	$(this).find('> li').each(function(){
-							($(this).height() > tallestImage) ? tallestImage = $(this).height() : tallestImage = tallestImage;
-						});	
-
-			         	$(this).css('height',tallestImage);
-			         	$(this).parent().css('height',tallestImage);
-			         });
-		   	    });  	
-
-			    $(window).trigger('resize');
+			    
 
 
-		    });
+		    })
 
-	    });
+	    })
+	
+		//cients carousel height
+  		$(window).resize(function(){
+	
+			$('.pl-quickcarousel').each(function(){ 
+			
+				var theCarousel = $(this)
+				,	tallestImage = 0
+
+	    	 	theCarousel.find( '> li' ).each(function(){
+					tallestImage = ($(this).height() > tallestImage) ?  $(this).height() : tallestImage;
+				});	
+
+	         	theCarousel
+					.css('height',tallestImage)
+					.end()
+					.parent()
+						.css('height',tallestImage)
+				
+			})
+
+			
+
+   	    })	
+
+	    $(window).trigger('resize');
 		
 	})
 }(window.jQuery);

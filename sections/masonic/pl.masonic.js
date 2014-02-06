@@ -53,17 +53,19 @@
 	
 				$('.masonic-gallery').each(function(  ){
 			
-						var galWidth = $(this).width()
+						var theGallery = $(this)
+						,	windowWidth = window.innerWidth
+						,	galWidth = theGallery.width()
 						,	masonrySetup = { }
 						,	numCols
 				
-						if( galWidth >= 1600 ){
+						if( windowWidth >= 1600 ){
 							numCols = 5
-						} else if ( galWidth >= 1300 ){
+						} else if ( windowWidth >= 1300 ){
 							numCols = 4
-						} else if ( galWidth >= 990 ){
+						} else if ( windowWidth >= 990 ){
 							numCols = 3
-						} else if ( galWidth >= 470 ){
+						} else if ( windowWidth >= 470 ){
 							numCols = 2
 						} else {
 							numCols = 1
@@ -74,13 +76,15 @@
 						}
 						
 		
-						$(this).isotope({
+						theGallery.isotope({
 							resizable: false, 
 							itemSelector : 'li',
 							filter: '*',
 							layoutMode: layoutMode,
 							masonry: masonrySetup
 						}).isotope( 'reLayout' )
+	
+						console.log('numcols'+numCols)
 	
 				})
 			
