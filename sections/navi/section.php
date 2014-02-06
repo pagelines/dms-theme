@@ -118,7 +118,7 @@ class PLNavi extends PageLinesSection {
 	?>
 	<div class="navi-wrap <?php echo $class; ?> fix">
 		<div class="navi-left navi-container">
-			<a href="<?php echo home_url();?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo() ); ?></a>
+			<a href="<?php echo home_url('/');?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo() ); ?></a>
 		</div>
 		<div class="navi-right">
 			<?php
