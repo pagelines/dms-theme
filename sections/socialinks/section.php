@@ -55,6 +55,11 @@ class PLSocialinks extends PageLinesSection {
 						'label'	=> 'Add Built With Icons (HTML5, CSS3, PageLines)',
 						'scope'	=> 'global'
 					),
+					array(
+						'key'	=> 'menu',
+						'type'	=> 'select_menu',
+						'label'	=> 'Select Menu',
+					),
 				)
 				
 			),
@@ -107,11 +112,27 @@ class PLSocialinks extends PageLinesSection {
 		$text = ( $this->opt('sl_text') ) ? $this->opt('sl_text') : sprintf('&copy; %s %s', date("Y"), get_bloginfo('name'));
 		
 		$align = ( $this->opt('sl_align') ) ? $this->opt('sl_align') : 'sl-links-right';
+		
+		$menu = ( $this->opt('menu') ) ? $this->opt('menu') : false;
 
 	?>
 	<div class="socialinks-wrap fix <?php echo $align;?>">
 		
-		<?php echo sprintf('<div class="sl-text">%s</div>', $text); ?>
+		<?php 
+		
+				$menu_args = array(
+					'theme_location' => 'socialinks_nav',
+					'menu' => $menu,
+					'menu_class'	=> 'inline-list pl-nav sl-nav'
+				);
+			
+				$nav = ($menu) ? pl_navigation( $menu_args ) : '';
+			
+				echo sprintf('<div class="sl-text"><span class="sl-copy">%s</span> %s</div>', $text, $nav); 
+				
+			
+				
+		?>
 		
 		<div class="sl-links">
 		<?php 
