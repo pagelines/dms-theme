@@ -317,7 +317,7 @@ class PLMasonic extends PageLinesSection {
 										<?php  echo do_shortcode( '[post_date]' ); ?>
 									</div>
 								<?php else: ?>
-									<div class="info-text"><i class="icon-link"></i></div>
+									<div class="info-text"><i class="icon icon-link"></i></div>
 								<?php endif;?>
 							</div></div>
 

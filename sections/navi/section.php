@@ -149,13 +149,13 @@ class PageLines_Walker_Nav_Menu extends Walker_Nav_Menu {
   		$id_field = $this->db_fields['id'];
 
         if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent == 0) {
-            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-down"></i></span>';
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon icon-angle-down"></i></span>';
 			$element->classes[] = 'sf-with-ul';
 
         }
 
 		if (!empty($children_elements[$element->$id_field]) && $element->menu_item_parent != 0) {
-            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon-angle-right"></i></span>';
+            $element->title =  $element->title . '<span class="sub-indicator"><i class="icon icon-angle-right"></i></span>';
         }
 
         Walker_Nav_Menu::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
