@@ -175,20 +175,7 @@ class PLMaps extends PageLinesSection {
 	}
 
    function section_template( ) {
-
-		echo '<div class="pl-map-wrap pl-animation pl-slidedown"><div id="pl-map"></div></div>';
-
+		$height = ( $this->opt( 'map_height' ) ) ? $this->opt( 'map_height' ) . 'px' : '350px';	
+		printf( '<div class="pl-map-wrap pl-animation"><div id="pl-map" style="height: %s"></div></div>', $height );
 	}
-
-	function section_foot() {
-		$height = ( $this->opt( 'map_height' ) ) ? $this->opt( 'map_height' ) : '350px';
-		?>
-		<script>
-		jQuery(document).ready(function(){
-			jQuery('#pl-map').css({ height: '<?php echo $height; ?>' });
-		});
-		</script>
-		<?php
-	}
-
 }
