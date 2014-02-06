@@ -176,7 +176,7 @@ class PLMaps extends PageLinesSection {
 
    function section_template( ) {
 
-		echo '<div class="pl-map-wrap"><div id="pl-map"></div></div>';
+		echo '<div class="pl-map-wrap pl-animation pl-slidedown"><div id="pl-map"></div></div>';
 
 	}
 
