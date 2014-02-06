@@ -126,7 +126,9 @@ class PLTestimonials extends PageLinesSection {
 		>
 		  <ul class="pl-testimonials">
 			
-			<?php foreach( $item_array as $item ): 
+			<?php 
+				$count = 1;
+				foreach( $item_array as $item ): 
 				
 					$text = pl_array_get( 'text', $item ); 
 					$cite = pl_array_get( 'cite', $item );
@@ -143,12 +145,12 @@ class PLTestimonials extends PageLinesSection {
 				?>
 		  		<li <?php echo $avatar_data;?> >
 				    <blockquote>
-				    	<p><?php echo $text; ?></p>
+				    	<p data-sync="<?php printf('pl_testimonial_array_item%s_text', $count);?>"><?php echo $text; ?></p>
 				    	
 				    </blockquote>
 					<?php echo $cite; ?>
 				  </li>
-			<?php endforeach; ?>
+			<?php $count++; endforeach; ?>
 		  
 		  </ul>
 		</div><!-- .quotes -->
