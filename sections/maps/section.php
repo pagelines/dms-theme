@@ -176,6 +176,6 @@ class PLMaps extends PageLinesSection {
 
    function section_template( ) {
 		$height = ( $this->opt( 'map_height' ) ) ? $this->opt( 'map_height' ) . 'px' : '350px';	
-		printf( '<div class="pl-map-wrap pl-animation"><div id="pl-map" style="height: %s"></div></div>', $height );
+		printf( '<div class="pl-map-wrap pl-animation pl-slidedown"><div id="pl-map" style="height: %s"></div></div>', $height );
 	}
 }
