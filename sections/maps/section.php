@@ -147,6 +147,7 @@ class PLMaps extends PageLinesSection {
 					'key'		=> 'image',
 					'label' 	=> __( 'Pointer Image', 'pagelines' ),
 					'type'		=> 'image_upload',
+					'help'		=> __( 'For best results use an image size of 64 x 64 pixels.', 'pagelines' )
 				),
 				array(
 					'key'	=> 'latitude',
