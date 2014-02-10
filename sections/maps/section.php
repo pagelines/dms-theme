@@ -25,7 +25,7 @@ class PLMaps extends PageLinesSection {
 
 	function section_head() {
 		$locations = $this->opt('locations_array');
-
+		$maps = array();
 		$defaults = array(
 			'lat'	=> floatval( $this->lat ),
 			'lng'	=> floatval( $this->lng ),
@@ -35,7 +35,7 @@ class PLMaps extends PageLinesSection {
 
 		if( ! is_array( $locations ) ) {
 			$maps = array(
-				1 => $defaults
+					1 => $defaults
 			);
 		} else {
 			$maps = array();
@@ -61,9 +61,9 @@ class PLMaps extends PageLinesSection {
 			'image'			=> $this->base_url.'/marker.png'
 		);
 
-		wp_localize_script( 'pl-maps', 'map_data', $maps );
+		wp_localize_script( 'pl-maps', 'map_data_' . $this->meta['unique'], $maps );
 
-		wp_localize_script( 'pl-maps', 'map_main', $main );
+		wp_localize_script( 'pl-maps', 'map_main_' . $this->meta['unique'], $main );
 	}
 
 	function section_opts(){
@@ -175,7 +175,7 @@ class PLMaps extends PageLinesSection {
 	}
 
    function section_template( ) {
-		$height = ( $this->opt( 'map_height' ) ) ? $this->opt( 'map_height' ) . 'px' : '350px';	
-		printf( '<div class="pl-map-wrap pl-animation pl-slidedown"><div id="pl-map" class="pl-end-height" style="height: %s"></div></div>', $height );
+		$height = $this->opt( 'map_height', array( 'default' => '350px' ) );	
+		printf( '<div class="pl-map-wrap pl-animation pl-slidedown"><div id="pl_map_%s" data-map-id="%s" class="pl-map pl-end-height" style="height: %s"></div></div>', $this->meta['unique'], $this->meta['unique'], $height );
 	}
 }
