@@ -48,13 +48,13 @@ class PLNavi extends PageLinesSection {
 			array(
 				'type'	=> 'multi',
 				'key'	=> 'navi_content',
-				'title'	=> 'Logo',
+				'title'	=> __( 'Logo', 'pagelines' ),
 				'col'	=> 1,
 				'opts'	=> array(
 					array(
 						'type'	=> 'image_upload',
 						'key'	=> 'navi_logo',
-						'label'	=> 'Navboard Logo',
+						'label'	=> __( 'Navboard Logo', 'pagelines' ),
 						'has_alt'	=> true,
 						'opts'	=> array(
 							'center_logo'	=> 'Center: Logo | Right: Pop Menu | Left: Site Search',
@@ -73,25 +73,25 @@ class PLNavi extends PageLinesSection {
 					array(
 						'key'	=> 'navi_help',
 						'type'	=> 'help_important',
-						'label'	=> 'Using Megamenus (multi column drop down)',
-						'help'	=> 'Want a full width, multi column "mega menu"? Simply add a class of "megamenu" to the list items using the WP menu creation tool.'
+						'label'	=> __( 'Using Megamenus (multi column drop down)', 'pagelines' ),
+						'help'	=> __( 'Want a full width, multi column "mega menu"? Simply add a class of "megamenu" to the list items using the WP menu creation tool.', 'pagelines' )
 					),
 					array(
 						'key'	=> 'navi_menu',
 						'type'	=> 'select_menu',
-						'label'	=> 'Select Menu',
+						'label'	=> __( 'Select Menu', 'pagelines' ),
 					),
 					array(
 						'key'	=> 'navi_search',
 						'type'	=> 'check',
-						'label'	=> 'Hide Search?',
+						'label'	=> __( 'Hide Search?', 'pagelines' ),
 					),
 					array(
 						'key'	=> 'navi_offset',
 						'type'	=> 'text_small',
 						'place'	=> '100%',
-						'label'	=> 'Dropdown offset from top of nav (optional)',
-						'help'	=> 'Default is 100% aligned to bottom. Can be PX or %.'
+						'label'	=> __( 'Dropdown offset from top of nav (optional)', 'pagelines' ),
+						'help'	=> __( 'Default is 100% aligned to bottom. Can be PX or %.', 'pagelines' )
 					), 
 					
 				)

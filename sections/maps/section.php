@@ -74,7 +74,7 @@ class PLMaps extends PageLinesSection {
 		$options[] = array(
 				'type'	=> 'multi',
 				'key'	=> 'plmap_config',
-				'title'	=> 'Google Maps Configuration',
+				'title'	=> __( 'Google Maps Configuration', 'pagelines' ),
 				'col'	=> 1,
 				'opts'	=> array(
 
@@ -83,7 +83,7 @@ class PLMaps extends PageLinesSection {
 						'type'	=> 'text_small',
 						'default'	=> $this->lat,
 						'place'		=> $this->lat,
-						'label'	=> 'Latitude',
+						'label'	=> __( 'Latitude', 'pagelines' ),
 						'help'	=> $this->help
 					),
 					array(
@@ -91,7 +91,7 @@ class PLMaps extends PageLinesSection {
 						'type'	=> 'text_small',
 						'default'	=> $this->lng,
 						'place'	=> $this->lng,
-						'label'	=> 'Longitude',
+						'label'	=> __( 'Longitude', 'pagelines' ),
 						'help'	=> $this->help
 					),
 
@@ -99,7 +99,7 @@ class PLMaps extends PageLinesSection {
 						'type'	=> 'select',
 						'key'	=> 'map_height',
 						'default'	=> '350px',
-						'label'	=> 'Select Map Height ( default 350px)',
+						'label'	=> __( 'Select Map Height ( default 350px)', 'pagelines' ),
 						'opts'	=> array(
 							'200px'	=> array( 'name' => '200px'),
 							'250px'	=> array( 'name' => '250px'),
@@ -112,7 +112,7 @@ class PLMaps extends PageLinesSection {
 							'type'	=> 'count_select',
 							'key'	=> 'map_zoom_level',
 							'default'	=> '12',
-							'label'	=> 'Select Map Zoom Level ( default 10)',
+							'label'	=> __( 'Select Map Zoom Level ( default 10)', 'pagelines' ),
 							'count_start'	=> 1,
 							'count_number'	=> 18,
 							'default'		=> '10',
@@ -120,14 +120,14 @@ class PLMaps extends PageLinesSection {
 						array(
 							'type'	=> 'check',
 							'key'	=> 'map_zoom_enable',
-							'label'	=> 'Enable Zoom Controls',
+							'label'	=> __( 'Enable Zoom Controls', 'pagelines' ),
 							'default'		=> true,
 							'compile'		=> true,
 						),
 					array(
 						'type'	=> 'check',
 						'key'	=> 'enable_animation',
-						'label'	=> 'Enable Animations',
+						'label'	=> __( 'Enable Animations', 'pagelines' ),
 						'default'		=> true,
 						'compile'		=> true,
 					),
