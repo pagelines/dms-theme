@@ -64,6 +64,12 @@ class PLMasonic extends PageLinesSection {
 					'count_number'	=> 20,
 					'default'		=> 10,
 					'label' 		=> __( 'Total Posts Loaded', 'pagelines' ),
+				),
+				array(
+					'key'			=> $this->id.'_excerpt',
+					'type' 			=> 'check',
+					'default'		=> false,
+					'label' 		=> __( 'Display Post Excerpt In Grid Mode', 'pagelines' ),
 				)
 				
 
@@ -167,6 +173,8 @@ class PLMasonic extends PageLinesSection {
 	function section_template(  ) {
 
 		global $post;
+		
+		$show_excerpt = $this->opt( $this->id . '_excerpt', array( 'default' => false ) );
 		
 		$format = ( $this->opt( $this->id.'_format' ) ) ? $this->opt( $this->id.'_format' ) : 'masonry';
 		
@@ -327,7 +335,7 @@ class PLMasonic extends PageLinesSection {
 					<?php if( $format == 'grid' ) : ?>
 						<div class="pl-grid-content fix">
 							<div class="pl-grid-meta">
-								<?php if( ! $disable_show_love ) echo pl_karma( $post->ID );?>
+								<?php echo pl_karma( $post->ID );?>
 							</div>
 							<div class="pl-grid-text">
 								<h4>
