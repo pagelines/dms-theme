@@ -54,38 +54,43 @@
 				$('.masonic-gallery').each(function(  ){
 			
 						var theGallery = $(this)
-						,	windowWidth = window.innerWidth
-						,	galWidth = theGallery.width()
-						,	masonrySetup = { }
-						,	numCols
-				
-						if( windowWidth >= 1600 ){
-							numCols = 5
-						} else if ( windowWidth >= 1300 ){
-							numCols = 4
-						} else if ( windowWidth >= 990 ){
-							numCols = 3
-						} else if ( windowWidth >= 470 ){
-							numCols = 2
-						} else {
-							numCols = 1
-						}
-				
-						masonrySetup = {
-							columnWidth: parseInt( galWidth / numCols )
-						}
 						
-		
-						theGallery.isotope({
-							resizable: false, 
-							itemSelector : 'li',
-							filter: '*',
-							layoutMode: layoutMode,
-							masonry: masonrySetup
-						}).isotope( 'reLayout' )
-	
-						console.log('numcols'+numCols)
-	
+						theGallery.imagesLoaded(  function(){
+							
+							var windowWidth = window.innerWidth
+							,	galWidth = theGallery.width()
+							,	masonrySetup = { }
+							,	numCols
+
+							if( windowWidth >= 1600 ){
+								numCols = 5
+							} else if ( windowWidth >= 1300 ){
+								numCols = 4
+							} else if ( windowWidth >= 990 ){
+								numCols = 3
+							} else if ( windowWidth >= 470 ){
+								numCols = 2
+							} else {
+								numCols = 1
+							}
+
+							masonrySetup = {
+								columnWidth: parseInt( galWidth / numCols )
+							}
+
+
+							theGallery.isotope({
+								resizable: false, 
+								itemSelector : 'li',
+								filter: '*',
+								layoutMode: layoutMode,
+								masonry: masonrySetup
+							}).isotope( 'reLayout' )
+
+							console.log('numcols'+numCols)
+							
+						})
+						
 				})
 			
 			
