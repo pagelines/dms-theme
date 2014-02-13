@@ -27,23 +27,29 @@ class PLQuickCarousel extends PageLinesSection {
 				'title'	=> 'Config',
 				'col'	=> 1,
 				'opts'	=> array(
-					
 					array(
-						'type'	=> 'select',
-						'key'	=> 'format', 
-						'label'	=> 'Select Format',
-						'opts'	=> array(
-							'shadow'	=> array( 'name' => 'Images w/ Drop Shadows'),
-							'nostyle'	=> array( 'name' => 'No Style'),
-							'frame'		=> array( 'name' => 'Images with Frame'),
-							'browser'	=> array( 'name' => 'Faux Browser Wrap (for screenshots)'),
-						), 
+						'key'			=> 'cols',
+						'type' 			=> 'count_select',
+						'count_start'	=> 1,
+						'count_number'	=> 6,
+						'default'		=> '3',
+						'label' 	=> __( 'Number of Columns for Each Item (12 Col Grid)', 'pagelines' ),
 					),
 					array(
 						'type'	=> 'text_small',
 						'key'	=> 'max', 
-						'label'	=> 'Max Items',
+						'label'	=> 'Max Items In View',
 						'default'	=> 6
+					),
+					array(
+						'key'			=> 'vpad',
+						'type' 			=> 'select_padding',
+						'label' 		=> __( 'Vertical Top/Bottom Padding', 'pagelines' ),
+					),
+					array(
+						'key'			=> 'hpad',
+						'type' 			=> 'select_padding',
+						'label' 		=> __( 'Horizontal Top/Bottom Padding', 'pagelines' ),
 					),
 				)
 				
@@ -54,6 +60,7 @@ class PLQuickCarousel extends PageLinesSection {
 			'key'		=> 'array',
 	    	'type'		=> 'accordion', 
 			'col'		=> 2,
+			'opts_cnt'	=> 6,
 			'title'		=> __('Image Setup', 'pagelines'), 
 			'post_type'	=> __('Image', 'pagelines'), 
 			'opts'	=> array(
@@ -79,6 +86,10 @@ class PLQuickCarousel extends PageLinesSection {
 
 	function get_content( $array ){
 		
+		$cols = ($this->opt('cols')) ? $this->opt('cols') : 2;
+		$hpad = ($this->opt('hpad')) ? 'hpad-' . $this->opt('hpad') : '';
+		$vpad = ($this->opt('vpad')) ? 'vpad-' . $this->opt('vpad') : '';
+		
 		$out = '';
 		
 		if( is_array( $array ) ){
@@ -88,7 +99,7 @@ class PLQuickCarousel extends PageLinesSection {
 				$link = pl_array_get( 'link', $item );
 			
 				if( $image ){
-					
+				
 					$image_meta = wp_get_attachment_image_src( $image_id, 'aspect-thumb' );
 					
 					$image_url = (isset($image_meta[0])) ? $image_meta[0] : $image;
@@ -96,7 +107,10 @@ class PLQuickCarousel extends PageLinesSection {
 					$image_out = ( $link ) ? sprintf('<a href="%s"><img src="%s" alt="" /></a>', $link, $image_url) : sprintf('<img src="%s" alt="" />', $image_url);
 					
 					$out .= sprintf(
-						'<li class="pl-animation pla-from-bottom carousel-item span2" style="">%s</li>', 
+						'<li class="pl-animation pla-from-bottom carousel-item span%s" style=""><div class="carousel-item-pad %s %s">%s</div></li>', 
+						$cols,
+						$hpad,
+						$vpad,
 						$image_out
 					);
 				}
@@ -113,6 +127,7 @@ class PLQuickCarousel extends PageLinesSection {
 		$classes = array(); 
 		
 		$max = ($this->opt('max')) ? $this->opt('max') : 6;
+		
 		$format = $this->opt('format');
 		$classes[] = 'format-'.$format;
 		
@@ -120,7 +135,7 @@ class PLQuickCarousel extends PageLinesSection {
 	
 	?>
 	
-	<div class="pl-quickcarousel <?php echo join( ' ', $classes );?> pl-animation-group row row-closed" data-max="<?php echo $max;?>">
+	<div class="pl-quickcarousel <?php echo join( ' ', $classes );?> pl-animation-group row-no-response row-closed" data-max="<?php echo $max;?>">
 	
 		<?php
 

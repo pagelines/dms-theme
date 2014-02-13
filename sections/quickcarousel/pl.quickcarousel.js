@@ -17,10 +17,13 @@
 
 			theCarousel.imagesLoaded( function(instance){
 				var tallestImage = 0
+				
 				theCarousel.find( '> li' ).each(function(){
 					tallestImage = ($(this).height() > tallestImage) ?  $(this).height() : tallestImage;
 				});
 				
+				console.log('tallest image --> ' + tallestImage)
+			
 		    	theCarousel.carouFredSel({
 						width: "100%",
 					  	height: "auto",
@@ -49,10 +52,10 @@
 			    })
 
 			    theCarousel
-					.parents('.carousel-wrap')
-					.wrap('<div class="carousel-outer">');
-
-			    
+			    	.parents('.carousel-wrap')
+   					.wrap('<div class="carousel-outer">');
+   
+		    			    
 
 
 		    })
@@ -61,29 +64,27 @@
 	
 		//cients carousel height
   		$(window).resize(function(){
-	
-			$('.pl-quickcarousel').each(function(){ 
-			
+  		  			
+  			$('.pl-quickcarousel').each(function(){ 
+
 				var theCarousel = $(this)
 				,	tallestImage = 0
 
-	    	 	theCarousel.find( '> li' ).each(function(){
+			  	theCarousel.find( '> li' ).each(function(){
 					tallestImage = ($(this).height() > tallestImage) ?  $(this).height() : tallestImage;
 				});	
 
-	         	theCarousel
+			  	theCarousel
 					.css('height',tallestImage)
 					.end()
 					.parent()
 						.css('height',tallestImage)
-				
+	
 			})
-
-			
-
-   	    })	
-
-	    $(window).trigger('resize');
+		
+		})	
+		
+		$(window).trigger('resize');
 		
 	})
 }(window.jQuery);

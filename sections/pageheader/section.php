@@ -109,7 +109,7 @@ class PLPageHeader extends PageLinesSection {
 		
 		$container_class = array();
 		$container_class[] = $this->opt('ph_format'); 
-		$container_class[] = $this->opt('ph_pad_class'); 
+		$container_class[] = 'vpad-' . $this->opt('ph_pad_class'); 
 		
 		
 		?>
