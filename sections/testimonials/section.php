@@ -11,8 +11,8 @@
 class PLTestimonials extends PageLinesSection {
 
 	function section_styles(){
-		wp_enqueue_script( 'quovolver', $this->base_url . '/jquery.quovolver.js', array( 'jquery' ), pl_get_cache_key(), true );
-		wp_enqueue_script( 'pagelines-quovolver', $this->base_url . '/pl.quovolver.js', array( 'quovolver' ), pl_get_cache_key(), true );
+
+		wp_enqueue_script( 'pl-testimonials', $this->base_url . '/pl.testimonials.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 	
 	function section_opts(){
@@ -86,30 +86,60 @@ class PLTestimonials extends PageLinesSection {
 
 	}
 
+	function get_testimonials( $array ){
+		
+		ob_start(); 
+			$count = 1;
+			foreach( $array as $item ){
+			
+				$text = pl_array_get( 'text', $item ); 
+				$cite = pl_array_get( 'cite', $item );
+				$email = pl_array_get( 'email', $item );
+				
+				$cite = ( $cite ) ? sprintf('<cite>%s</cite>', $cite) : '';
+				
+				if( $text == '')
+					continue;
+					
+				$avatar = get_avatar( $email );
+				$avatar_url = pl_get_avatar_url($avatar);
+				$avatar_data = sprintf('data-avatar="%s"', $avatar_url);
+			?>
+	  		<div class="the-testimonial" <?php echo $avatar_data;?> >
+			    <blockquote>
+			    	<p data-sync="<?php printf('pl_testimonial_array_item%s_text', $count);?>"><?php echo $text; ?></p>
+			    	
+			    </blockquote>
+				<?php echo $cite; ?>
+			</div>
+		<?php 
+			$count++; 
+		}
+	
+		return ob_get_clean();
+	}
+	
+	function defaults(){
+		$array = array(
+			array(
+				'text'	=> 'The difference between stupidity and genius is that genius has its limits.',
+				'cite'	=> 'Albert Einstein, <a href="http://www.pagelines.com">PageLines</a>'
+			),
+			array(
+				'text'	=> 'Be a yardstick of quality. Some people are not used to an environment where excellence is expected.',
+				'cite'	=> 'Steve Jobs, <a href="http://www.pagelines.com">PageLines</a>'
+			),
+			array(
+				'text'	=> 'Any product that needs a manual to work is broken.',
+				'cite'	=> 'Elon Musk, <a href="http://www.pagelines.com">PageLines</a>'
+			),
+		);
+		
+		return $array;
+	}
+
 	function section_template() {
-
-		$item_array = $this->opt('pl_testimonial_array');
-		
-		if( ! is_array($item_array) ){
-
-			$item_array = array(
-				array(
-					'text'	=> 'The difference between stupidity and genius is that genius has its limits.',
-					'cite'	=> 'Albert Einstein, <a href="http://www.pagelines.com">PageLines</a>'
-				),
-				array(
-					'text'	=> 'Be a yardstick of quality. Some people are not used to an environment where excellence is expected.',
-					'cite'	=> 'Steve Jobs, <a href="http://www.pagelines.com">PageLines</a>'
-				),
-				array(
-					'text'	=> 'Any product that needs a manual to work is broken.',
-					'cite'	=> 'Elon Musk, <a href="http://www.pagelines.com">PageLines</a>'
-				),
-			);
-
-
-		} 
-		
+	
 		$mode = ( $this->opt('testimonials_mode')) ? $this->opt('testimonials_mode') : 'default';
 		$height = ( $this->opt('testimonials_height')) ? 'true' : 'false';
 		$auto = ( $this->opt('testimonials_disable_auto')) ? 'false' : 'true';
@@ -124,36 +154,20 @@ class PLTestimonials extends PageLinesSection {
 			data-auto="<?php echo $auto; ?>" 
 			data-speed="<?php echo $speed; ?>" 
 		>
-		  <ul class="pl-testimonials">
+		  <div class="pl-testimonials">
 			
 			<?php 
-				$count = 1;
-				foreach( $item_array as $item ): 
+			
+				$t = $this->get_testimonials( $this->opt('pl_testimonial_array') ); 
 				
-					$text = pl_array_get( 'text', $item ); 
-					$cite = pl_array_get( 'cite', $item );
-					$email = pl_array_get( 'email', $item );
-					
-					$cite = ( $cite ) ? sprintf('<cite>%s</cite>', $cite) : '';
-					
-					if( $text == '')
-						continue;
-						
-					$avatar = get_avatar( $email );
-					$avatar_url = pl_get_avatar_url($avatar);
-					$avatar_data = sprintf('data-avatar="%s"', $avatar_url);
+				if( $t == '' )
+					echo $this->get_testimonials( $this->defaults() ); 
+				else
+					echo $t;
+				
 				?>
-		  		<li <?php echo $avatar_data;?> >
-				    <blockquote>
-				    	<p data-sync="<?php printf('pl_testimonial_array_item%s_text', $count);?>"><?php echo $text; ?></p>
-				    	
-				    </blockquote>
-					<?php echo $cite; ?>
-				  </li>
-			<?php $count++; endforeach; ?>
-		  
-		  </ul>
-		</div><!-- .quotes -->
+		  </div>
+		</div>
 	<?php
 	}
 }
