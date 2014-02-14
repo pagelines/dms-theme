@@ -35,11 +35,11 @@ class PLTestimonials extends PageLinesSection {
 					),
 				),
 			
-				array(
-					'key'	=> 'testimonials_height',
-					'label'	=> __( 'Use consistent height?', 'pagelines' ),
-					'type'	=> 'check'
-				),
+				// array(
+				// 					'key'	=> 'testimonials_height',
+				// 					'label'	=> __( 'Use consistent height?', 'pagelines' ),
+				// 					'type'	=> 'check'
+				// 				),
 				array(
 					'key'	=> 'testimonials_disable_auto',
 					'label'	=> __( 'Disable Automatically Transition?', 'pagelines' ),
