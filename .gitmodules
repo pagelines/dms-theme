@@ -40,3 +40,6 @@
 [submodule "sections/starbars"]
 	path = sections/starbars
 	url = git@github.com:pagelines/starbars.git
+[submodule "sections/idocs"]
+	path = sections/idocs
+	url = git@github.com:pagelines/idocs.git
