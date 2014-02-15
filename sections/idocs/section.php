@@ -18,7 +18,7 @@ class PLIDocs extends PageLinesSection {
 	}
 
 	function section_styles(){
-		
+		wp_enqueue_script( 'pl-idocs', $this->base_url.'/pl.idocs.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 	function section_opts(){
@@ -143,8 +143,25 @@ class PLIDocs extends PageLinesSection {
 
 	
 	function section_template(  ) {
+		global $post;
+		$posts = $this->get_posts();
 
-
+		?>
+		<div class="idocs-wrapper row">
+			<div class="span3 idocs-sidebar">
+				<ul class="widget">
+				<?php 
+				foreach( $posts as $p ){
+					printf( '<li class=""><a href="%s">%s</a></li>', get_permalink( $p->ID ), $p->post_title );
+				}
+				?>
+				</ul>
+			</div>
+			<div class="span9 idocs-content">
+				<?php the_content(); ?>
+			</div>
+		</div>
+		<?php 
 	}
 
 
