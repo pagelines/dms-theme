@@ -19,13 +19,12 @@ class PLMasonic extends PageLinesSection {
 
 	function section_styles(){
 		wp_enqueue_script( 'isotope', PL_JS . '/utils.isotope.min.js', array('jquery'), pl_get_cache_key(), true);
-	//	wp_enqueue_script( 'isotope', PL_JS . '/utils.isotope2.js', array('jquery'), pl_get_cache_key(), true);
 		wp_enqueue_script( 'pl-masonic', $this->base_url.'/pl.masonic.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
 	function section_opts(){
 
-		
+
 		$options = array();
 
 		$options[] = array(
@@ -54,9 +53,10 @@ class PLMasonic extends PageLinesSection {
 					'key'			=> $this->id.'_sizes',
 					'type' 			=> 'select_imagesizes',
 					'default'		=> 'large',
-					'label' 		=> __( 'Select Thumb Size', 'pagelines' )
+					'label' 		=> __( 'Select Thumb Size', 'pagelines' ),
+					'help'			=> __( 'For best results use large or full image sizes.', 'pagelines' )
 				),
-				
+
 				array(
 					'key'			=> $this->id.'_total',
 					'type' 			=> 'count_select',
@@ -71,7 +71,7 @@ class PLMasonic extends PageLinesSection {
 					'default'		=> false,
 					'label' 		=> __( 'Display Post Excerpt In Grid Mode', 'pagelines' ),
 				)
-				
+
 
 			)
 
@@ -89,14 +89,14 @@ class PLMasonic extends PageLinesSection {
 					'label' 		=> __( 'Masonic Meta', 'pagelines' ),
 					'ref'			=> __( 'Use shortcodes to control the dynamic meta info. Example shortcodes you can use are: <ul><li><strong>[post_categories]</strong> - List of categories</li><li><strong>[post_edit]</strong> - Link for admins to edit the post</li><li><strong>[post_tags]</strong> - List of post tags</li><li><strong>[post_comments]</strong> - Link to post comments</li><li><strong>[post_author_posts_link]</strong> - Author and link to archive</li><li><strong>[post_author_link]</strong> - Link to author URL</li><li><strong>[post_author]</strong> - Post author with no link</li><li><strong>[post_time]</strong> - Time of post</li><li><strong>[post_date]</strong> - Date of post</li><li><strong>[post_type]</strong> - Type of post</li></ul>', 'pagelines' ),
 				),
-				
+
 
 
 			)
 
 		);
 
-	
+
 		$options[] = array(
 			'key'		=> $this->id.'_post_sort',
 			'type'		=> 'select',
@@ -107,8 +107,8 @@ class PLMasonic extends PageLinesSection {
 				'ASC'		=> array('name' => __( 'Date Ascending', 'pagelines' ) ),
 				'rand'		=> array('name'	=> __( 'Random', 'pagelines' ) )
 			)
-		);	
-		
+		);
+
 		$selection_opts = array(
 			array(
 				'key'			=> $this->id.'_meta_key',
@@ -124,22 +124,22 @@ class PLMasonic extends PageLinesSection {
 				'label' 	=> __( 'Meta Key Value', 'pagelines' ),
 			),
 		);
-		
+
 			$selection_opts[] = array(
 				'label'			=> 'Post Category',
-				'key'			=> $this->id.'_category', 
-				'type'			=> 'select_wp_tax', 
-				'post_type'		=> $this->opt($this->id.'_post_type'), 
+				'key'			=> $this->id.'_category',
+				'type'			=> 'select_wp_tax',
+				'post_type'		=> $this->opt($this->id.'_post_type'),
 				'help'		=> __( 'Only applies for standard blog posts.', 'pagelines' ),
 			);
-		
-		
+
+
 
 		$options[] = array(
 
 			'title' => __( 'Additional Post Selection', 'pagelines' ),
 			'type'	=> 'multi',
-			
+
 			'opts'	=> $selection_opts
 		);
 
@@ -147,61 +147,61 @@ class PLMasonic extends PageLinesSection {
 
 		return $options;
 	}
-	
+
 	function get_masonry_image_size(){
-		
+
 		$n = rand(1, 12);
-		
+
 		$image_sizes = array(
 			'basic-thumb',
 			'landscape-thumb',
 			'tall-thumb',
 			'big-thumb'
 		);
-		
+
 		if( $n == 1 ){
 			return 'big-thumb';
 		} elseif ( $n <= 3){
 			return 'landscape-thumb';
 		} elseif ( $n <= 5){
 			return 'tall-thumb';
-		} else 
+		} else
 			return 'basic-thumb';
-		
+
 	}
-	
-	function section_template(  ) {
+
+	function section_template() {
 
 		global $post;
-		
+
 		$show_excerpt = $this->opt( $this->id . '_excerpt', array( 'default' => false ) );
-		
-		$format = ( $this->opt( $this->id.'_format' ) ) ? $this->opt( $this->id.'_format' ) : 'masonry';
-		
+
+		$format = $this->opt( $this->id.'_format', array( 'default' => 'masonry' ) );
+
 		$gutter_class = ( $format == 'grid' ) ? 'with-gutter' : '';
-		
-		$post_type = ($this->opt($this->id.'_post_type')) ? $this->opt($this->id.'_post_type') : 'post';
 
-		$pt = get_post_type_object($post_type);
+		$post_type = $this->opt( $this->id.'_post_type', array( 'default' => 'post' ) );
 
-		$total = ($this->opt($this->id.'_total')) ? $this->opt($this->id.'_total') : '10';
+		$pt = get_post_type_object( $post_type );
 
-		
+		$total = $this->opt($this->id.'_total', array( 'default' => 10 ) );
 
-		$meta = ($this->opt($this->id.'_meta')) ? $this->opt($this->id.'_meta') : '[post_date] [post_edit]';
 
-		
-		if( $this->opt($this->id.'_sizes') ) 
+
+		$meta = $this->opt($this->id.'_meta', array( 'default' => '[post_date] [post_edit]' ) );
+
+
+		if( $this->opt($this->id.'_sizes') )
 			$sizes = $this->opt($this->id.'_sizes');
 		elseif( $format == 'masonry' )
 			$sizes = $this->get_masonry_image_size();
-		else 
+		else
 			$sizes = 'aspect-thumb';
 
 
-		$sorting = ($this->opt($this->id.'_post_sort')) ? $this->opt($this->id.'_post_sort') : 'DESC';
+		$sorting = $this->opt($this->id.'_post_sort', array( 'default' => 'DESC' ) );
 
-		$orderby = ( 'rand' == $this->opt($this->id.'_post_sort') ) ? 'rand' : 'date'; 
+		$orderby = ( 'rand' == $sorting ) ? 'rand' : 'date';
 
 		$the_query = array(
 			'posts_per_page' 	=> $total,
@@ -214,40 +214,41 @@ class PLMasonic extends PageLinesSection {
 			$the_query['meta_key'] = $this->opt($this->id.'_meta_key');
 			$the_query['meta_value'] = $this->opt($this->id.'_meta_value');
 		}
-		
-		
-		$filter_tax = ( $this->opt($this->id.'_category') ) ? $this->opt($this->id.'_category') : 'category';
-		
+
+
+		$filter_tax = $this->opt($this->id.'_category', array( 'default' => 'category' ) );
+
 		$posts = get_posts( $the_query );
-		
+
 		$filters = array();
 		foreach( $posts as $post ){
 			$terms = wp_get_post_terms( $post->ID, $filter_tax );
-			
+
 			foreach( $terms as $t ){
 				$filters[ $t->slug ] = $t->name;
 			}
-			
+
 		}
-		
+
 		$args = array(
 			'taxonomy' => $filter_tax
 
 		);
 		$list = get_categories( $args );
-		
+
 		if( is_array( $list ) && ! empty( $list ) ){
 			foreach( $list as $key => $l ){
-			
+
 				if( ! isset( $filters[$l->slug] ) )
 					unset( $list[$key] );
-		
+
 			}
 		}
-		
-		if(!empty($posts)) { setup_postdata( $post ); ?>
 
-			
+		if(!empty($posts)) {
+			?>
+
+
 
 			<div class="masonic-wrap">
 				<div class="masonic-header pl-area-ui-element">
@@ -257,13 +258,13 @@ class PLMasonic extends PageLinesSection {
 							<ul class="masonic-nav inline-list">
 								<lh>Sort:</lh>
 								<li class="pl-link"><a href="#" data-filter="*">All</a></li>
-								<?php 
+								<?php
 								if( is_array( $list ) && ! empty( $list ) ){
 									foreach( $list as $key => $l ){
 										printf('<li><a href="#" data-filter=".%s">%s</a></li>', $l->slug, ucwords($l->name) );
 									}
 								}
-									
+
 								?>
 							</lu>
 						</div>
@@ -278,24 +279,24 @@ class PLMasonic extends PageLinesSection {
 				$item_cols = 3;
 				$count = 1;
 				$total = count($posts);
-				 foreach( $posts as $post ): 
-					
-					setup_postdata( $post ); 
-					
+				 foreach( $posts as $post ):
+
+					setup_postdata( $post );
+
 					$filters = wp_get_post_terms( $post->ID, $filter_tax );
-				
-					
+
+
 					$filter_classes = array();
 					if( is_array($filters) && ! empty($filters) ){
 						foreach( $filters as $f ){
 							$filter_classes[] = $f->slug;
 						}
 					}
-					
-					
-					
+
+
+
 				//	echo pl_grid_tool('row_start', $item_cols, $count, $total);
-					
+
 						?>
 
 
@@ -307,16 +308,16 @@ class PLMasonic extends PageLinesSection {
 							echo get_the_post_thumbnail( $post->ID, $sizes	, array('title' => ''));
 						else
 							printf('<img src="%s" alt="no image added yet." />', pl_default_image());
-					
-						
+
+
 							 ?>
 
 						<div class="pl-grid-image-hover"></div>
-					
+
 						<a class="pl-grid-image-info" href="<?php echo get_permalink();?>">
 
 							<div class="pl-center-table"><div class="pl-center-cell">
-								
+
 								<?php if( $format == 'masonry' ): ?>
 									<h4>
 										<?php the_title(); ?>
@@ -346,7 +347,7 @@ class PLMasonic extends PageLinesSection {
 								<div class="pl-grid-metabar">
 									<?php echo do_shortcode( $meta ); ?>
 								</div>
-						
+
 								<?php if( $show_excerpt ): ?>
 								<div class="pl-grid-excerpt pl-border">
 									<?php the_excerpt();?>
@@ -361,10 +362,10 @@ class PLMasonic extends PageLinesSection {
 
 			</li>
 
-<?php 
+<?php
 
 			//echo pl_grid_tool('row_end', $item_cols, $count, $total);
-	
+
 			$count++;
 			endforeach; endif;
 
@@ -382,27 +383,27 @@ class PLMasonic extends PageLinesSection {
 }
 
 class Walker_Masonic_Filter extends Walker_Category {
-	
+
    function start_el(&$output, $category, $depth = 0, $args = array(), $current_object_id = 0) {
 
       extract($args);
       $cat_slug = esc_attr( $category->slug );
       $cat_slug = apply_filters( 'list_cats', $cat_slug, $category );
-	  
+
       $link = '<li><a href="#" data-filter=".'.strtolower(preg_replace('/\s+/', '-', $cat_slug)).'">';
-	  
+
 	  $cat_name = esc_attr( $category->name );
       $cat_name = apply_filters( 'list_cats', $cat_name, $category );
-	  	
+
       $link .= $cat_name;
-	  
+
       if(!empty($category->description)) {
          $link .= ' <span>'.$category->description.'</span>';
       }
-	  
+
       $link .= '</a>';
-     
+
       $output .= $link;
-       
+
    }
 }
