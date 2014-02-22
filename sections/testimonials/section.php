@@ -158,7 +158,7 @@ class PLTestimonials extends PageLinesSection {
 			
 			<?php 
 			
-				$t = $this->get_testimonials( $this->opt('pl_testimonial_array') ); 
+				$t = $this->get_testimonials( $this->opt('pl_testimonial_array', array( 'default' => $this->defaults() ) ) ); 
 				
 				if( $t == '' )
 					echo $this->get_testimonials( $this->defaults() ); 
