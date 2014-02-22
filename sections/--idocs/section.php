@@ -18,6 +18,7 @@ class PLIDocs extends PageLinesSection {
 	}
 
 	function section_styles(){
+		wp_enqueue_script( 'stickysidebar', $this->base_url.'/stickysidebar.js', array( 'jquery' ), pl_get_cache_key(), true );
 		wp_enqueue_script( 'pl-idocs', $this->base_url.'/pl.idocs.js', array( 'jquery' ), pl_get_cache_key(), true );
 	}
 
