@@ -148,7 +148,7 @@ class PLPopShot extends PageLinesSection {
 		
 		$array = $this->opt('popshot_array');
 		
-		$height = ( $this->opt('popshot_height') ) ? $this->opt('popshot_height') : '280px';
+		$height = ( $this->opt('popshot_height') ) ? $this->opt('popshot_height') : '300px';
 		
 		
 	?>
