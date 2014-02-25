@@ -149,8 +149,9 @@ class PLIDocs extends PageLinesSection {
 
 		?>
 		<div class="idocs-wrapper row">
-			<div class="span3 idocs-sidebar">
-				<ul class="widget">
+			<div class="idocs-sidebar pl-contrast">
+				<ul class="standard-list">
+					<lh>Docs</lh>
 				<?php 
 				foreach( $posts as $p ){
 					printf( '<li class=""><a href="%s">%s</a></li>', get_permalink( $p->ID ), $p->post_title );
@@ -158,7 +159,7 @@ class PLIDocs extends PageLinesSection {
 				?>
 				</ul>
 			</div>
-			<div class="span9 idocs-content">
+			<div class="idocs-content">
 				<?php the_content(); ?>
 			</div>
 		</div>

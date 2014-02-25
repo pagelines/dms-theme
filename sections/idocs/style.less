@@ -1,8 +1,34 @@
 .idocs-wrapper{
 	position: relative;
-	
+	.sticky-wrapper{
+		position: absolute;
+	}
+	.idocs-sidebar{
+		width: 280px;
+		ul{
+			padding: 15px;
+			lh{
+				font-weight: 600;
+				padding: 4px;
+				font-size: 1.2em;
+				margin-bottom: 0px;
+				display: block;
+			}
+			li a{
+				padding: 4px;
+				display: block;
+			}
+		} 
+	}
+	.idocs-content{
+		margin-left: 320px;
+	}
 	.idocs-sidebar.sticky{
-	float: none; position: fixed; top: 20px; z-index: 6; left: auto;
+		float: none; 
+		position: fixed; 
+		top: 20px; 
+		z-index: 6; 
+		left: auto;
 		
 	}
 }
