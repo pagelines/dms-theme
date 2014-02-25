@@ -137,14 +137,14 @@ class PLPopShot extends PageLinesSection {
 		$classes = array(); 
 		$format = $this->opt('popshot_format');
 		
-		if( $format == 'browser' )
-			$classes[] = 'popshot-browser';
+		if( $format == 'shadow' )
+			$classes[] = 'popshot-shadow';
 		elseif( $format == 'frame' )	
 			$classes[] = 'popshot-frame';
 		elseif( $format == 'nostyle' )	
 			$classes[] = 'popshot-nostyle';
 		else
-			$classes[] = 'popshot-shadow';
+			$classes[] = 'popshot-browser';
 		
 		$array = $this->opt('popshot_array');
 		
@@ -162,9 +162,10 @@ class PLPopShot extends PageLinesSection {
 			if( $out == '' ){
 				$array = array(
 					array(
-						'image'		=> pl_default_image(),
-						'width'		=> '600px',
-						'offset'	=> '-300px'
+						'image'				=> pl_default_image(),
+						'width'				=> '600px',
+						'offset'			=> '-300px',
+						
 					)
 				);
 				

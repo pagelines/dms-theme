@@ -1,10 +1,14 @@
-.idocs-wrapper{
+.docker-wrapper{
 	position: relative;
+	.docker-title{
+		margin: 0 0 1em 0;
+	}
 	.sticky-wrapper{
 		position: absolute;
 	}
-	.idocs-sidebar{
+	.docker-sidebar{
 		width: 280px;
+		position: absolute;
 		ul{
 			padding: 15px;
 			lh{
@@ -19,16 +23,16 @@
 				display: block;
 			}
 		} 
+		&.sticky{
+			float: none; 
+			position: fixed; 
+			top: 20px; 
+			z-index: 6; 
+			left: auto;
+
+		}
 	}
-	.idocs-content{
+	.docker-content{
 		margin-left: 320px;
-	}
-	.idocs-sidebar.sticky{
-		float: none; 
-		position: fixed; 
-		top: 20px; 
-		z-index: 6; 
-		left: auto;
-		
 	}
 }
