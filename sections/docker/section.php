@@ -85,11 +85,12 @@ class PLDocker extends PageLinesSection {
 		?>
 		<div class="docker-wrapper row">
 			<div class="docker-sidebar pl-contrast">
-				<ul class="standard-list">
+				<ul class="standard-list theme-list-nav">
 					<?php echo $title; ?>
 				<?php 
 				foreach( $posts as $p ){
-					printf( '<li class=""><a href="%s">%s</a></li>', get_permalink( $p->ID ), $p->post_title );
+					$list_class = ( $p->ID == $post->ID ) ? 'current-menu-item' : '';
+					printf( '<li class="%s"><a href="%s">%s</a></li>', $list_class, get_permalink( $p->ID ), $p->post_title );
 				}
 				?>
 				</ul>
