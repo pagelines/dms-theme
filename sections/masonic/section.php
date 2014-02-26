@@ -266,7 +266,7 @@ class PLMasonic extends PageLinesSection {
 								}
 
 								?>
-							</lu>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -367,6 +367,7 @@ class PLMasonic extends PageLinesSection {
 			//echo pl_grid_tool('row_end', $item_cols, $count, $total);
 
 			$count++;
+
 			endforeach; endif;
 
 
