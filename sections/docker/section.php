@@ -85,7 +85,9 @@ class PLDocker extends PageLinesSection {
 		?>
 		<div class="docker-wrapper row">
 			<div class="docker-sidebar pl-contrast">
+				<div class="docker-mobile-drop pl-contrast">Select <i class="icon icon-caret-down"></i></div>
 				<ul class="standard-list theme-list-nav">
+					
 					<?php echo $title; ?>
 				<?php 
 				foreach( $posts as $p ){

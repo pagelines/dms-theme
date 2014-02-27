@@ -10,6 +10,15 @@
 	.docker-sidebar{
 		width: 280px;
 		position: absolute;
+		.docker-mobile-drop{
+			text-align: center; 
+			font-size: 15px;
+			line-height: 40px;
+			display: none;
+			cursor: pointer;
+			text-transform: uppercase; 
+			letter-spacing: 1px;
+		}
 		ul{
 			padding: 10px 0;
 			lh{
@@ -37,6 +46,31 @@
 		margin-left: 320px;
 		padding: 20px 0;
 		min-height: 500px;
+	}
+	@media (max-width: @resPortraitTablet) {
+		
+		
+		.sticky-wrapper, 
+		.docker-sidebar{
+			width: auto;
+			position: static !important; 
+			height: auto !important; 
+		}
+		.docker-sidebar{
+			.docker-mobile-drop{
+				display: block;
+			}
+			ul{
+				display: none;
+				&.show-me{
+					display: block;
+				}
+			}
+		}
+		.docker-content{
+			margin-left: 20px;
+		}
+
 	}
 }
 
