@@ -27,11 +27,26 @@ class PLDocker extends PageLinesSection {
 		
 		$options = array();
 
+		$options['help'] = array(
+			'title' => __( 'Using This Section', 'pagelines' ),
+			'type'	=> 'multi',
+			'col'	=> 1,
+			'opts'	=> array(
+				array(
+					'key'		=> 'help',
+					'type'		=> 'link',
+					'label'		=> __( 'Using Docker', 'pagelines' ),
+					'help'		=> __( 'Using Docker is simple. Usually, it requires two steps.<p>1. Docker uses a custom post type of your choosing. So you probably want to use a plugin to create a custom post type and select it in Docker options.</p><p>2. You will need to add Docker to both its root page and to the template for the custom post type you have created.</p>', 'pagelines' ),
+				),
+
+			)
+		);
+
 		$options['config'] = array(
 
 			'title' => __( 'Config', 'pagelines' ),
 			'type'	=> 'multi',
-			'col'	=> 1,
+			'col'	=> 2,
 			'opts'	=> array(
 				array(
 					'key'		=> 'format',
@@ -61,7 +76,7 @@ class PLDocker extends PageLinesSection {
 
 			'title' => __( 'Posts', 'pagelines' ),
 			'type'	=> 'multi',
-			'col'	=> 2,
+			'col'	=> 3,
 			'opts'	=> pl_get_post_type_options()
 
 		);
@@ -80,11 +95,15 @@ class PLDocker extends PageLinesSection {
 		global $post;
 		$posts = $this->get_posts();
 		
-		$title = ( $this->opt('nav_title') ) ? sprintf( '<lh>%s</lh>', $this->opt('nav_title') ) : '';
+		$title = ( $this->opt('nav_title') ) ? $this->opt('nav_title') : '';
+		
+		$title = ( $this->opt('nav_title_link') ) ? sprintf('<a href="%s">%s</a>', $this->opt('nav_title_link'), $title) : '';
+		
+		$title = ( $title != '' ) ? sprintf( '<lh>%s</lh>', $title ) : '';
 
 		?>
 		<div class="docker-wrapper row">
-			<div class="docker-sidebar pl-contrast">
+			<div class="docker-sidebar pl-border">
 				<div class="docker-mobile-drop pl-contrast">Select <i class="icon icon-caret-down"></i></div>
 				<ul class="standard-list theme-list-nav">
 					
