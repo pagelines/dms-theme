@@ -122,8 +122,9 @@ class PLSocialinks extends PageLinesSection {
 		
 				$menu_args = array(
 					'theme_location' => 'socialinks_nav',
-					'menu' => $menu,
-					'menu_class'	=> 'inline-list pl-nav sl-nav'
+					'menu' 			=> $menu,
+					'menu_class'	=> 'inline-list pl-nav sl-nav', 
+					'respond'		=> false
 				);
 			
 				$nav = ($menu) ? pl_navigation( $menu_args ) : '';
