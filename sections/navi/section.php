@@ -27,24 +27,6 @@ class PLNavi extends PageLinesSection {
 	function section_opts(){
 
 		$opts = array(
-			// array(
-			// 				'type'	=> 'multi',
-			// 				'key'	=> 'navi_format',
-			// 				'title'	=> 'Navboard Format and Formatting',
-			// 				'opts'	=> array(
-			// 					array(
-			// 						'type'	=> 'select',
-			// 						'key'	=> 'navi_format',
-			// 						'label'	=> 'Select Format',
-			// 						'opts'	=> array(
-			// 							'center_logo'	=> array( 'name' => 'Logo Center, Pop out menu' ),
-			// 							'left_logo'		=> array( 'name' => 'Logo Left, standard menu' ),
-			// 						),
-			//
-			// 					)
-			// 				)
-			//
-			// 			),
 			array(
 				'type'	=> 'multi',
 				'key'	=> 'navi_content',
@@ -61,6 +43,12 @@ class PLNavi extends PageLinesSection {
 							'left_logo'		=> 'Left: Logo | Right: Standard Menu',
 						),
 					),
+					array(
+						'type'		=> 'check',
+						'key'		=> 'navi_logo_disable',
+						'label'		=> __( 'Disable Logo?', 'pagelines' ),
+						'default'	=> false
+					)
 				)
 
 			),
@@ -92,13 +80,9 @@ class PLNavi extends PageLinesSection {
 						'place'	=> '100%',
 						'label'	=> __( 'Dropdown offset from top of nav (optional)', 'pagelines' ),
 						'help'	=> __( 'Default is 100% aligned to bottom. Can be PX or %.', 'pagelines' )
-					), 
-					
+					)	
 				)
-
 			)
-
-
 		);
 
 		return $opts;
@@ -118,7 +102,9 @@ class PLNavi extends PageLinesSection {
 	?>
 	<div class="navi-wrap <?php echo $class; ?> fix">
 		<div class="navi-left navi-container">
-			<a href="<?php echo home_url('/');?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo() ); ?></a>
+			<?php if( '1' !== $this->opt( 'navi_logo_disable' ) ): ?>
+				<a href="<?php echo home_url('/');?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo() ); ?></a>
+			<?php endif; ?>
 		</div>
 		<div class="navi-right">
 			<?php
