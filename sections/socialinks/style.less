@@ -26,7 +26,19 @@
 			float: left;
 		}
 	}
-	
+	@media (max-width: @resPortraitTablet) {
+		.sl-text, 
+		.sl-links{
+			
+			float: none;
+			text-align: center;
+			margin: 10px 0;
+		}
+		.pl-nav{
+			display: block;
+		}
+
+	}
 }
 .sl-link{
 	font-size: 22px;

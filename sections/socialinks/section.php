@@ -51,8 +51,8 @@ class PLSocialinks extends PageLinesSection {
 					),
 					array(
 						'type'	=> 'check',
-						'key'	=> 'sl_web', 
-						'label'	=> 'Add Built With Icons (HTML5, CSS3, PageLines)',
+						'key'	=> 'sl_web_disable', 
+						'label'	=> 'Disable "Built With" Icons (HTML5, CSS3, PageLines)',
 						'scope'	=> 'global'
 					),
 					array(
@@ -122,8 +122,9 @@ class PLSocialinks extends PageLinesSection {
 		
 				$menu_args = array(
 					'theme_location' => 'socialinks_nav',
-					'menu' => $menu,
-					'menu_class'	=> 'inline-list pl-nav sl-nav'
+					'menu' 			=> $menu,
+					'menu_class'	=> 'inline-list pl-nav sl-nav', 
+					'respond'		=> false
 				);
 			
 				$nav = ($menu) ? pl_navigation( $menu_args ) : '';
@@ -145,7 +146,7 @@ class PLSocialinks extends PageLinesSection {
 				printf('<a href="%s" class="sl-link" %s><i class="icon icon-%s"></i></a>', $url, $target, $icon); 
 		}
 		
-		if( pl_setting('sl_web') ){
+		if( ! pl_setting( 'sl_web_disable' ) ){
 			
 			?><span class="sl-web-links"><a class="sl-link"  title="CSS3 Valid"><i class="icon icon-css3"></i></a><a class="sl-link" title="HTML5 Valid"><i class="icon icon-html5"></i></a><a class="sl-link" href="http://www.pagelines.com" title="Built with PageLines DMS"><i class="icon icon-pagelines"></i></a>
 			</span>
