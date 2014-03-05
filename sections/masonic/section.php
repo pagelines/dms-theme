@@ -81,6 +81,7 @@ class PLMasonic extends PageLinesSection {
 
 			'title' => __( 'Masonic Content', 'pagelines' ),
 			'type'	=> 'multi',
+			'col'	=> 3,
 			'help'		=> __( 'Options to control the text and link in the Masonic title.', 'pagelines' ),
 			'opts'	=> array(
 				array(
@@ -139,7 +140,7 @@ class PLMasonic extends PageLinesSection {
 
 			'title' => __( 'Additional Post Selection', 'pagelines' ),
 			'type'	=> 'multi',
-
+			
 			'opts'	=> $selection_opts
 		);
 
@@ -335,25 +336,28 @@ class PLMasonic extends PageLinesSection {
 
 					<?php if( $format == 'grid' ) : ?>
 						<div class="pl-grid-content fix">
-							<div class="pl-grid-meta">
-								<?php echo pl_karma( $post->ID );?>
-							</div>
-							<div class="pl-grid-text">
-								<h4>
-									<a href="<?php echo get_permalink();?>">
-									<?php the_title(); ?>
-									</a>
-								</h4>
-								<div class="pl-grid-metabar">
-									<?php echo do_shortcode( $meta ); ?>
+							<div class="fix">
+								<div class="pl-grid-meta">
+									<?php echo pl_karma( $post->ID );?>
 								</div>
+								<div class="pl-grid-text">
+									<h4>
+										<a href="<?php echo get_permalink();?>">
+										<?php the_title(); ?>
+										</a>
+									</h4>
+									<div class="pl-grid-metabar">
+										<?php echo do_shortcode( $meta ); ?>
+									</div>
 
-								<?php if( $show_excerpt ): ?>
-								<div class="pl-grid-excerpt pl-border">
-									<?php the_excerpt();?>
 								</div>
-								<?php endif;?>
 							</div>
+							<?php if( $show_excerpt ): ?>
+							<div class="pl-grid-excerpt pl-border">
+								<?php the_excerpt();?>
+							</div>
+							<?php endif;?>
+							
 						</div>
 					<?php endif;?>
 
