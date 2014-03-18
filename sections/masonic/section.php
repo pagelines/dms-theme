@@ -52,7 +52,6 @@ class PLMasonic extends PageLinesSection {
 				array(
 					'key'			=> $this->id.'_sizes',
 					'type' 			=> 'select_imagesizes',
-					'default'		=> 'large',
 					'label' 		=> __( 'Select Thumb Size', 'pagelines' ),
 					'help'			=> __( 'For best results use large or full image sizes.', 'pagelines' )
 				),
