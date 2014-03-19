@@ -22,7 +22,7 @@
 					tallestImage = ($(this).height() > tallestImage) ?  $(this).height() : tallestImage;
 				});
 				
-				console.log('tallest image --> ' + tallestImage)
+				plPrint('tallest image --> ' + tallestImage)
 			
 		    	theCarousel.carouFredSel({
 						width: "100%",
