@@ -191,7 +191,7 @@ class PLMasonic extends PageLinesSection {
 		$meta = $this->opt($this->id.'_meta', array( 'default' => '[post_date] [post_edit]' ) );
 
 
-		if( $this->opt($this->id.'_sizes') )
+		if( $this->opt($this->id.'_sizes') && $this->opt($this->id.'_sizes') != '' )
 			$sizes = $this->opt($this->id.'_sizes');
 		elseif( $format == 'masonry' )
 			$sizes = $this->get_masonry_image_size();
