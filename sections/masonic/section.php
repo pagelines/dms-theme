@@ -84,6 +84,11 @@ class PLMasonic extends PageLinesSection {
 			'help'		=> __( 'Options to control the text and link in the Masonic title.', 'pagelines' ),
 			'opts'	=> array(
 				array(
+					'key'			=> 'default_title',
+					'type' 			=> 'text',
+					'label' 		=> __( 'Default Title', 'pagelines' ),
+				),
+				array(
 					'key'			=> $this->id.'_meta',
 					'type' 			=> 'text',
 					'label' 		=> __( 'Masonic Meta', 'pagelines' ),
@@ -99,6 +104,7 @@ class PLMasonic extends PageLinesSection {
 
 		$options[] = array(
 			'key'		=> $this->id.'_post_sort',
+			'col'		=> 3,
 			'type'		=> 'select',
 			'label'		=> __( 'Sort elements by postdate', 'pagelines' ),
 			'default'	=> 'DESC',
@@ -139,7 +145,7 @@ class PLMasonic extends PageLinesSection {
 
 			'title' => __( 'Additional Post Selection', 'pagelines' ),
 			'type'	=> 'multi',
-			
+			'col'		=> 3,
 			'opts'	=> $selection_opts
 		);
 
@@ -245,6 +251,8 @@ class PLMasonic extends PageLinesSection {
 			}
 		}
 
+		$default_title = ( $this->opt('default_title') ) ? $this->opt('default_title') : 'All';
+
 		if(!empty($posts)) {
 			?>
 
@@ -254,7 +262,7 @@ class PLMasonic extends PageLinesSection {
 				<div class="masonic-header pl-area-ui-element">
 					<div class="masonic-header-wrap pl-content">
 						<div class="masonic-header-content-pad fix">
-							<div class="masonic-title">All</div>
+							<div class="masonic-title"><?php echo $default_title; ?></div>
 							<ul class="masonic-nav inline-list">
 								<lh>Sort:</lh>
 								<li class="pl-link"><a href="#" data-filter="*">All</a></li>
