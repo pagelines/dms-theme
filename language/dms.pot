@@ -20,56 +20,102 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../sections/flipper/section.php:35
-msgid "Flipper Setup"
+#: ../sections/docker/section.php:31
+msgid "Using This Section"
 msgstr ""
 
-#: ../sections/flipper/section.php:43
+#: ../sections/docker/section.php:38
+msgid "Using Docker"
+msgstr ""
+
+#: ../sections/docker/section.php:39
+msgid ""
+"Using Docker is simple. Usually, it requires two steps.<p>1. Docker uses a "
+"custom post type of your choosing. So you probably want to use a plugin to "
+"create a custom post type and select it in Docker options.</p><p>2. You will "
+"need to add Docker to both its root page and to the template for the custom "
+"post type you have created.</p>"
+msgstr ""
+
+#: ../sections/docker/section.php:47 ../sections/flipper/section.php:33
+#: ../sections/masonic/section.php:32 ../sections/sharebar/section.php:42
+msgid "Config"
+msgstr ""
+
+#: ../sections/docker/section.php:54 ../sections/pageheader/section.php:26
+msgid "Format"
+msgstr ""
+
+#: ../sections/docker/section.php:63
+msgid "Nav Title"
+msgstr ""
+
+#: ../sections/docker/section.php:68
+msgid "Nav Title Link URL"
+msgstr ""
+
+#: ../sections/docker/section.php:77
+msgid "Posts"
+msgstr ""
+
+#: ../sections/flipper/section.php:42
 msgid "Which post type should Flipper use?"
 msgstr ""
 
-#: ../sections/flipper/section.php:44
+#: ../sections/flipper/section.php:43
 msgid ""
 "<strong>Note</strong><br/> Post types for this section must have \"featured "
 "images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
 "to create custom post types for use with Flipper."
 msgstr ""
 
-#: ../sections/flipper/section.php:57
+#: ../sections/flipper/section.php:48
+msgid "Layout Format"
+msgstr ""
+
+#: ../sections/flipper/section.php:50
+msgid "Grid"
+msgstr ""
+
+#: ../sections/flipper/section.php:51
+msgid "Image Only"
+msgstr ""
+
+#: ../sections/flipper/section.php:60
 msgid "Max Number of Posts Shown"
 msgstr ""
 
-#: ../sections/flipper/section.php:58
+#: ../sections/flipper/section.php:61
 msgid ""
 "This controls the maximum number of posts shown. A smaller amount may be "
 "shown based on layout width."
 msgstr ""
 
-#: ../sections/flipper/section.php:65
-msgid "Select Image Size"
+#: ../sections/flipper/section.php:79
+msgid "Hide Nav?"
 msgstr ""
 
-#: ../sections/flipper/section.php:72
-msgid "Flipper Title"
+#: ../sections/flipper/section.php:89
+msgid "Flipper Content"
 msgstr ""
 
-#: ../sections/flipper/section.php:74
+#: ../sections/flipper/section.php:92
 msgid "Options to control the text and link in the Flipper title."
 msgstr ""
 
-#: ../sections/flipper/section.php:79
+#: ../sections/flipper/section.php:97
 msgid "Flipper Title Text"
 msgstr ""
 
-#: ../sections/flipper/section.php:84
+#: ../sections/flipper/section.php:102
 msgid "Hide Title Link?"
 msgstr ""
 
-#: ../sections/flipper/section.php:96
+#: ../sections/flipper/section.php:108
 msgid "Flipper Meta"
 msgstr ""
 
-#: ../sections/flipper/section.php:97
+#: ../sections/flipper/section.php:109 ../sections/masonic/section.php:90
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
 "use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
@@ -84,37 +130,31 @@ msgid ""
 "li><li><strong>[post_type]</strong> - Type of post</li></ul>"
 msgstr ""
 
-#: ../sections/flipper/section.php:105
-msgid "Total Posts Loaded"
-msgstr ""
-
 #: ../sections/flipper/section.php:114
-msgid "Meta Key"
+msgid "Show excerpt?"
 msgstr ""
 
-#: ../sections/flipper/section.php:115
-msgid ""
-"Select only posts which have a certain meta key and corresponding meta "
-"value. Useful for featured posts, or similar."
+#: ../sections/flipper/section.php:120
+msgid "Disable social button/count?"
 msgstr ""
 
-#: ../sections/flipper/section.php:121
-msgid "Meta Key Value"
+#: ../sections/flipper/section.php:134 ../sections/masonic/section.php:103
+msgid "Sort elements by postdate"
 msgstr ""
 
-#: ../sections/flipper/section.php:136
+#: ../sections/flipper/section.php:165 ../sections/masonic/section.php:133
 msgid "Only applies for standard blog posts."
 msgstr ""
 
-#: ../sections/flipper/section.php:145
-msgid "Additional Post Selection"
+#: ../sections/flipper/section.php:174
+msgid "Advanced Post Selection"
 msgstr ""
 
-#: ../sections/flipper/section.php:207
+#: ../sections/flipper/section.php:251
 msgid " / View All"
 msgstr ""
 
-#: ../sections/flipper/section.php:212
+#: ../sections/flipper/section.php:257
 msgid " / View Blog"
 msgstr ""
 
@@ -134,67 +174,63 @@ msgstr ""
 msgid "Hero Image"
 msgstr ""
 
-#: ../sections/hero/section.php:50
+#: ../sections/hero/section.php:51
 msgid "Upload Custom Image"
 msgstr ""
 
-#: ../sections/hero/section.php:55
+#: ../sections/hero/section.php:56
 msgid "Reverse the Hero unit (image on left)"
 msgstr ""
 
-#: ../sections/hero/section.php:59
+#: ../sections/hero/section.php:60
 msgid "Content Widths"
 msgstr ""
 
-#: ../sections/hero/section.php:65
+#: ../sections/hero/section.php:66
 msgid "Text Area Width"
 msgstr ""
 
-#: ../sections/hero/section.php:81
+#: ../sections/hero/section.php:82
 msgid "Image Area Width"
 msgstr ""
 
-#: ../sections/hero/section.php:99
+#: ../sections/hero/section.php:100
 msgid "Hero Action Button"
 msgstr ""
 
-#: ../sections/hero/section.php:107
+#: ../sections/hero/section.php:108
 msgid "Button link destination (URL - Required)"
 msgstr ""
 
-#: ../sections/hero/section.php:112
+#: ../sections/hero/section.php:113
 msgid "Hero Button Text"
 msgstr ""
 
-#: ../sections/hero/section.php:118 ../sections/icallout/section.php:57
+#: ../sections/hero/section.php:119 ../sections/icallout/section.php:72
 msgid "Open link in new window"
 msgstr ""
 
-#: ../sections/hero/section.php:121 ../sections/masthead/section.php:120
-#: ../sections/masthead/section.php:304 ../sections/masthead/section.php:339
+#: ../sections/hero/section.php:122 ../sections/masthead/section.php:115
 msgid "Select Button Color"
 msgstr ""
 
-#: ../sections/hero/section.php:130 ../sections/masthead/section.php:309
-#: ../sections/masthead/section.php:344
+#: ../sections/hero/section.php:131
 msgid "Green"
 msgstr ""
 
-#: ../sections/hero/section.php:131 ../sections/masthead/section.php:310
-#: ../sections/masthead/section.php:345
+#: ../sections/hero/section.php:132
 msgid "Light Blue"
 msgstr ""
 
-#: ../sections/hero/section.php:132 ../sections/masthead/section.php:311
-#: ../sections/masthead/section.php:346
+#: ../sections/hero/section.php:133
 msgid "Grey"
 msgstr ""
 
-#: ../sections/hero/section.php:166
+#: ../sections/hero/section.php:167
 msgid "The Hero!"
 msgstr ""
 
-#: ../sections/hero/section.php:167
+#: ../sections/hero/section.php:168
 msgid "Now just set up your Hero section options"
 msgstr ""
 
@@ -210,133 +246,303 @@ msgstr ""
 msgid "Text/Button Inline"
 msgstr ""
 
-#: ../sections/icallout/section.php:32 ../sections/icallout/section.php:38
+#: ../sections/icallout/section.php:33 ../sections/icallout/section.php:39
 msgid "Callout Text"
 msgstr ""
 
-#: ../sections/icallout/section.php:51
+#: ../sections/icallout/section.php:44
+msgid "Callout Text Wrapper"
+msgstr ""
+
+#: ../sections/icallout/section.php:66
 msgid "URL"
 msgstr ""
 
-#: ../sections/icallout/section.php:62
+#: ../sections/icallout/section.php:77
 msgid "Text on Button"
 msgstr ""
 
-#: ../sections/icallout/section.php:67
+#: ../sections/icallout/section.php:82
 msgid "Button Color"
 msgstr ""
 
-#: ../sections/icallout/section.php:89
+#: ../sections/icallout/section.php:105
 msgid "Call to action!"
 msgstr ""
 
-#: ../sections/masthead/section.php:47 ../sections/masthead/section.php:250
+#: ../sections/maps/section.php:77
+msgid "Google Maps Configuration"
+msgstr ""
+
+#: ../sections/maps/section.php:86 ../sections/maps/section.php:154
+msgid "Latitude"
+msgstr ""
+
+#: ../sections/maps/section.php:94 ../sections/maps/section.php:161
+msgid "Longitude"
+msgstr ""
+
+#: ../sections/maps/section.php:102
+msgid "Select Map Height ( default 350px)"
+msgstr ""
+
+#: ../sections/maps/section.php:115
+msgid "Select Map Zoom Level ( default 10)"
+msgstr ""
+
+#: ../sections/maps/section.php:123
+msgid "Enable Zoom Controls"
+msgstr ""
+
+#: ../sections/maps/section.php:130
+msgid "Enable Animations"
+msgstr ""
+
+#: ../sections/maps/section.php:143
+msgid "Pointer Locations"
+msgstr ""
+
+#: ../sections/maps/section.php:144
+msgid "Location"
+msgstr ""
+
+#: ../sections/maps/section.php:148
+msgid "Pointer Image"
+msgstr ""
+
+#: ../sections/maps/section.php:150
+msgid "For best results use an image size of 64 x 64 pixels."
+msgstr ""
+
+#: ../sections/masonic/section.php:38
+msgid "Gallery Format"
+msgstr ""
+
+#: ../sections/masonic/section.php:40
+msgid "Grid Mode"
+msgstr ""
+
+#: ../sections/masonic/section.php:41
+msgid "Image/Masonry"
+msgstr ""
+
+#: ../sections/masonic/section.php:50
+msgid ""
+"<strong>Note</strong><br/> Post types for this section must have \"featured "
+"images\" enabled and be public.<br/><strong>Tip</strong><br/> Use a plugin "
+"to create custom post types for use."
+msgstr ""
+
+#: ../sections/masonic/section.php:56
+msgid "For best results use large or full image sizes."
+msgstr ""
+
+#: ../sections/masonic/section.php:71
+msgid "Display Post Excerpt In Grid Mode"
+msgstr ""
+
+#: ../sections/masonic/section.php:81
+msgid "Masonic Content"
+msgstr ""
+
+#: ../sections/masonic/section.php:84
+msgid "Options to control the text and link in the Masonic title."
+msgstr ""
+
+#: ../sections/masonic/section.php:89
+msgid "Masonic Meta"
+msgstr ""
+
+#: ../sections/masonic/section.php:140
+msgid "Additional Post Selection"
+msgstr ""
+
+#: ../sections/masthead/section.php:41
 msgid "Masthead Splash Options"
 msgstr ""
 
-#: ../sections/masthead/section.php:53 ../sections/masthead/section.php:256
+#: ../sections/masthead/section.php:48
 msgid "Upload custom image"
 msgstr ""
 
-#: ../sections/masthead/section.php:58 ../sections/masthead/section.php:260
+#: ../sections/masthead/section.php:53
 msgid "Masthead Video (optional, to be used instead of image)"
 msgstr ""
 
-#: ../sections/masthead/section.php:63 ../sections/masthead/section.php:264
+#: ../sections/masthead/section.php:58
 msgid "Maximum width of splash in px (default is full width)"
 msgstr ""
 
-#: ../sections/masthead/section.php:66 ../sections/masthead/section.php:267
+#: ../sections/masthead/section.php:61
 msgid ""
 "Upload an image to serve as a splash image, or use an embed code for full "
 "width video."
 msgstr ""
 
-#: ../sections/masthead/section.php:72
+#: ../sections/masthead/section.php:67
 msgid "Masthead Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:73 ../sections/masthead/section.php:273
+#: ../sections/masthead/section.php:68
 msgid " Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:83 ../sections/masthead/section.php:276
+#: ../sections/masthead/section.php:78
 msgid "Tagline"
 msgstr ""
 
-#: ../sections/masthead/section.php:96
+#: ../sections/masthead/section.php:91
 msgid "Masthead Action Button "
 msgstr ""
 
-#: ../sections/masthead/section.php:101 ../sections/masthead/section.php:288
-#: ../sections/masthead/section.php:323
+#: ../sections/masthead/section.php:96
 msgid "Enter the link destination (URL - Required)"
 msgstr ""
 
-#: ../sections/masthead/section.php:107 ../sections/masthead/section.php:293
-#: ../sections/masthead/section.php:328
+#: ../sections/masthead/section.php:102
 msgid "Masthead Button Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:114 ../sections/masthead/section.php:299
-#: ../sections/masthead/section.php:334
+#: ../sections/masthead/section.php:109
 msgid "Open link in new window."
 msgstr ""
 
-#: ../sections/masthead/section.php:133 ../sections/masthead/section.php:354
+#: ../sections/masthead/section.php:128
 msgid "Masthead Menu"
 msgstr ""
 
-#: ../sections/masthead/section.php:134 ../sections/masthead/section.php:355
+#: ../sections/masthead/section.php:129
 msgid "Select Masthead Menu"
 msgstr ""
 
-#: ../sections/masthead/section.php:140 ../sections/masthead/section.php:360
+#: ../sections/masthead/section.php:135
 msgid "Masthead Meta"
 msgstr ""
 
-#: ../sections/masthead/section.php:141 ../sections/masthead/section.php:361
+#: ../sections/masthead/section.php:136
 msgid "Enter Masthead Meta Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:198
+#: ../sections/masthead/section.php:193
 msgid "Start Here"
 msgstr ""
 
-#: ../sections/masthead/section.php:251
+#: ../sections/navi/section.php:23
+msgid "Navi Section"
+msgstr ""
+
+#: ../sections/navi/section.php:33
+msgid "Logo"
+msgstr ""
+
+#: ../sections/navi/section.php:39
+msgid "Navboard Logo"
+msgstr ""
+
+#: ../sections/navi/section.php:49
+msgid "Disable Logo?"
+msgstr ""
+
+#: ../sections/navi/section.php:64
+msgid "Using Megamenus (multi column drop down)"
+msgstr ""
+
+#: ../sections/navi/section.php:65
 msgid ""
-"Enter the options for the masthead splash image. If no options are "
-"specified, no image will be shown."
+"Want a full width, multi column \"mega menu\"? Simply add a class of "
+"\"megamenu\" to the list items using the WP menu creation tool."
 msgstr ""
 
-#: ../sections/masthead/section.php:272
-msgid "Enter text for your masthead banner section"
+#: ../sections/navi/section.php:81
+msgid "Dropdown offset from top of nav (optional)"
 msgstr ""
 
-#: ../sections/masthead/section.php:278
-msgid "The text for the masthead section"
+#: ../sections/navi/section.php:82
+msgid "Default is 100% aligned to bottom. Can be PX or %."
 msgstr ""
 
-#: ../sections/masthead/section.php:283
-msgid "Masthead Action Button 1"
+#: ../sections/pageheader/section.php:20
+msgid "Header Config"
 msgstr ""
 
-#: ../sections/masthead/section.php:284 ../sections/masthead/section.php:319
+#: ../sections/pageheader/section.php:35
+#: ../sections/testimonials/section.php:30
+msgid "Mode"
+msgstr ""
+
+#: ../sections/pageheader/section.php:45
+msgid "Header Top/Bottom Padding in px"
+msgstr ""
+
+#: ../sections/pageheader/section.php:50 ../sections/pageheader/section.php:57
+msgid "Header Text"
+msgstr ""
+
+#: ../sections/pageheader/section.php:62
+msgid "Header Sub Text"
+msgstr ""
+
+#: ../sections/pageheader/section.php:68
+msgid "Header Meta"
+msgstr ""
+
+#: ../sections/pageheader/section.php:75
+msgid "Header Menu (menu mode only)"
+msgstr ""
+
+#: ../sections/pageheader/section.php:80
+msgid "Header Link 1 (link mode only)"
+msgstr ""
+
+#: ../sections/pageheader/section.php:85
+msgid "Header Link 2 (link mode only)"
+msgstr ""
+
+#: ../sections/popshot/section.php:53
+msgid "PopShot Setup"
+msgstr ""
+
+#: ../sections/popshot/section.php:54
+msgid "PopShot"
+msgstr ""
+
+#: ../sections/popshot/section.php:58
 msgid ""
-"Enter the options for the masthead button. If no options are specified, no "
-"button will be shown."
+"PopShot Image <span class=\"badge badge-mini badge-warning\">REQUIRED</span>"
 msgstr ""
 
-#: ../sections/masthead/section.php:318
-msgid "Masthead Action Button 2"
+#: ../sections/popshot/section.php:63
+msgid "Offset from center"
 msgstr ""
 
-#: ../sections/masthead/section.php:352
-msgid "Choose a Wordpress menu to display (optional)"
+#: ../sections/popshot/section.php:66
+msgid ""
+"Left edge offset from center. For example -100px  would move the left edge "
+"of the image 100 pixels left from center."
 msgstr ""
 
-#: ../sections/masthead/section.php:358
-msgid "Enter text to be shown on Masthead (optional)"
+#: ../sections/popshot/section.php:70
+msgid "Maximum Width"
+msgstr ""
+
+#: ../sections/popshot/section.php:73
+msgid "Max width of image."
+msgstr ""
+
+#: ../sections/popshot/section.php:77
+msgid "Maximum Height"
+msgstr ""
+
+#: ../sections/popshot/section.php:80
+msgid "Max height from bottom in pixels."
+msgstr ""
+
+#: ../sections/popshot/section.php:84
+msgid "Z-Index (Stacking order)"
+msgstr ""
+
+#: ../sections/popshot/section.php:87
+msgid "Higher numbers will be placed higher in the stack."
 msgstr ""
 
 #: ../sections/popthumbs/section.php:42
@@ -355,11 +561,13 @@ msgstr ""
 msgid "Thumb"
 msgstr ""
 
-#: ../sections/popthumbs/section.php:74
+#: ../sections/popthumbs/section.php:74 ../sections/revslider/section.php:74
+#: ../sections/testimonials/section.php:67
 msgid "Text"
 msgstr ""
 
 #: ../sections/popthumbs/section.php:85
+#: ../sections/quickcarousel/section.php:65
 msgid "Image"
 msgstr ""
 
@@ -412,11 +620,44 @@ msgid "Button Theme"
 msgstr ""
 
 #: ../sections/propricing/section.php:95
+msgid "Select as Most Popular?"
+msgstr ""
+
+#: ../sections/propricing/section.php:100
 msgid "Attributes"
 msgstr ""
 
-#: ../sections/propricing/section.php:97
+#: ../sections/propricing/section.php:102
 msgid "Add each attribute on a new line. Add a \"*\" in front to add emphasis."
+msgstr ""
+
+#: ../sections/propricing/section.php:159
+msgid "Most Popular!"
+msgstr ""
+
+#: ../sections/quickcarousel/section.php:36
+msgid "Number of Columns for Each Item (12 Col Grid)"
+msgstr ""
+
+#: ../sections/quickcarousel/section.php:47
+msgid "Vertical Top/Bottom Padding"
+msgstr ""
+
+#: ../sections/quickcarousel/section.php:52
+msgid "Horizontal Top/Bottom Padding"
+msgstr ""
+
+#: ../sections/quickcarousel/section.php:64
+msgid "Image Setup"
+msgstr ""
+
+#: ../sections/quickcarousel/section.php:69
+msgid ""
+"Carousel Image <span class=\"badge badge-mini badge-warning\">REQUIRED</span>"
+msgstr ""
+
+#: ../sections/quickcarousel/section.php:74
+msgid "Image Link"
 msgstr ""
 
 #: ../sections/quickslider/section.php:147
@@ -441,32 +682,30 @@ msgid "Animate Slideshow Automatically?"
 msgstr ""
 
 #: ../sections/quickslider/section.php:175
-#: ../sections/revslider/section.php:39
+#: ../sections/revslider/section.php:51
 msgid "Slides Setup"
 msgstr ""
 
 #: ../sections/quickslider/section.php:176
-#: ../sections/revslider/section.php:40
+#: ../sections/revslider/section.php:52
 msgid "Slide"
 msgstr ""
 
 #: ../sections/quickslider/section.php:180
-#: ../sections/revslider/section.php:44
 msgid "Slide Background Image"
 msgstr ""
 
 #: ../sections/quickslider/section.php:183
-#: ../sections/revslider/section.php:47
+#: ../sections/revslider/section.php:59
 msgid "For high resolution, 2000px wide x 800px tall images. (2MB Limit)"
 msgstr ""
 
 #: ../sections/quickslider/section.php:189
-#: ../sections/revslider/section.php:57
+#: ../sections/revslider/section.php:69
 msgid "Slide Text"
 msgstr ""
 
 #: ../sections/quickslider/section.php:194
-#: ../sections/revslider/section.php:62
 msgid "Slide Link URL"
 msgstr ""
 
@@ -478,70 +717,112 @@ msgstr ""
 msgid "Recent"
 msgstr ""
 
-#: ../sections/rapidtabs/section.php:55 ../sections/rapidtabs/section.php:105
+#: ../sections/rapidtabs/section.php:55
 msgid "Comments"
 msgstr ""
 
-#: ../sections/rapidtabs/section.php:61
-msgid "Popular Posts"
-msgstr ""
-
-#: ../sections/rapidtabs/section.php:83
-msgid "Recent Posts"
+#: ../sections/rapidtabs/section.php:56
+msgid "Tags"
 msgstr ""
 
 #: ../sections/revslider/section.php:29
-msgid "Time Per Slide (in Milliseconds)"
+msgid "Time Per Slide in Milliseconds (e.g. 12000)"
 msgstr ""
 
-#: ../sections/revslider/section.php:52
+#: ../sections/revslider/section.php:35
+msgid "Slider Height in Pixels (e.g. 500)"
+msgstr ""
+
+#: ../sections/revslider/section.php:40
+msgid "Set to full window height? (Overrides height setting)"
+msgstr ""
+
+#: ../sections/revslider/section.php:41
+msgid ""
+"This option will set the slider to the height of the users browser window on "
+"load, it will also resize as needed."
+msgstr ""
+
+#: ../sections/revslider/section.php:56
+msgid ""
+"Slide Background Image <span class=\"badge badge-mini badge-warning"
+"\">REQUIRED</span>"
+msgstr ""
+
+#: ../sections/revslider/section.php:64
 msgid "Slide Title"
 msgstr ""
 
-#: ../sections/revslider/section.php:67
+#: ../sections/revslider/section.php:83
 msgid "Slide Text Location"
 msgstr ""
 
-#: ../sections/revslider/section.php:77
+#: ../sections/revslider/section.php:94
 msgid "Slide Transition"
 msgstr ""
 
-#: ../sections/revslider/section.php:83
-msgid "Slide Extra Elements"
+#: ../sections/revslider/section.php:100
+msgid "Primary Button"
 msgstr ""
 
-#: ../sections/revslider/section.php:85
+#: ../sections/revslider/section.php:105
+msgid "Secondary Button"
+msgstr ""
+
+#: ../sections/revslider/section.php:111
+msgid "HTML5 Background Video"
+msgstr ""
+
+#: ../sections/revslider/section.php:123
+msgid "Slide Extra Captions"
+msgstr ""
+
+#: ../sections/revslider/section.php:125
 msgid ""
-"Add extra Revolution Slider markup here. Rev slider is based on Revolution "
-"Slider, a jQuery plugin. It supports a wide array of functionality including "
-"video embeds and additional transitions if you can handle HTML. Check out "
-"the <a href=\"http://www.orbis-ingenieria.com/code/documentation/"
-"documentation.html\" target=\"_blank\">docs here</a>."
+"Add extra Revolution Slider caption markup here. Rev slider is based on "
+"Revolution Slider, a jQuery plugin. It supports a wide array of "
+"functionality including video embeds and additional transitions if you can "
+"handle HTML. Check out the <a href=\"http://www.orbis-ingenieria.com/code/"
+"documentation/documentation.html\" target=\"_blank\">docs here</a>."
 msgstr ""
 
-#: ../sections/sharebar/section.php:30
-msgid ""
-"You have no shares setup, please look at Global Options > Social & Local; or "
-"deactivate the Sharebar from the Blog Post Template."
+#: ../sections/revslider/section.php:202
+msgid "Check it out"
 msgstr ""
 
-#: ../sections/sharebar/section.php:30
-msgid "Social Settings"
+#: ../sections/sharebar/section.php:48
+msgid "Description Text"
 msgstr ""
 
-#: ../sections/sharebar/section.php:34
-msgid "Share &rarr;"
+#: ../sections/sharebar/section.php:54
+msgid "Alignment"
+msgstr ""
+
+#: ../sections/sharebar/section.php:56
+msgid "Social links on right"
+msgstr ""
+
+#: ../sections/sharebar/section.php:57
+msgid "Social links in center"
+msgstr ""
+
+#: ../sections/sharebar/section.php:58
+msgid "Social links on left"
+msgstr ""
+
+#: ../sections/sharebar/section.php:67
+msgid "Share Button Disable"
 msgstr ""
 
 #: ../sections/starbars/section.php:29
 msgid "StarBar Configuration"
 msgstr ""
 
-#: ../sections/starbars/section.php:38 ../sections/starbars/section.php:211
+#: ../sections/starbars/section.php:38
 msgid "Number of StarBars to Configure"
 msgstr ""
 
-#: ../sections/starbars/section.php:44 ../sections/starbars/section.php:216
+#: ../sections/starbars/section.php:44
 msgid "Starbar Total Count (Number)"
 msgstr ""
 
@@ -551,7 +832,7 @@ msgid ""
 "StarBar values will be shown as a percentage of this value. Default is 100."
 msgstr ""
 
-#: ../sections/starbars/section.php:52 ../sections/starbars/section.php:221
+#: ../sections/starbars/section.php:52
 msgid "Starbar Modifier (Text Added to Stats)"
 msgstr ""
 
@@ -559,11 +840,11 @@ msgstr ""
 msgid "This will be added to the stat number."
 msgstr ""
 
-#: ../sections/starbars/section.php:63 ../sections/starbars/section.php:230
+#: ../sections/starbars/section.php:63
 msgid "Starbar Format"
 msgstr ""
 
-#: ../sections/starbars/section.php:69 ../sections/starbars/section.php:235
+#: ../sections/starbars/section.php:69
 msgid "StarBar Title (Optional)"
 msgstr ""
 
@@ -580,23 +861,33 @@ msgid "Shown as a percentage of the StarBar total in the config."
 msgstr ""
 
 #: ../sections/starbars/section.php:95
-msgid "<i class=\"icon-star\"></i> StarBar #"
+msgid "<i class=\"icon icon-star\"></i> StarBar #"
 msgstr ""
 
-#: ../sections/starbars/section.php:252
-#, php-format
-msgid "Starbar #%s Description"
+#: ../sections/testimonials/section.php:26
+msgid "Testimonials Config"
 msgstr ""
 
-#: ../sections/starbars/section.php:256
-#, php-format
-msgid "Starbar #%s Value"
+#: ../sections/testimonials/section.php:45
+msgid "Disable Automatically Transition?"
 msgstr ""
 
-#: ../sections/starbars/section.php:262
-msgid "StarBar Values"
+#: ../sections/testimonials/section.php:50
+msgid "Time per quote in ms (ex: 10000, auto transition only) "
 msgstr ""
 
-#: ../sections/starbars/section.php:269
-msgid "Starbar"
+#: ../sections/testimonials/section.php:62
+msgid "Testimonials Setup"
+msgstr ""
+
+#: ../sections/testimonials/section.php:63
+msgid "Testimonial"
+msgstr ""
+
+#: ../sections/testimonials/section.php:72
+msgid "Citation"
+msgstr ""
+
+#: ../sections/testimonials/section.php:77
+msgid "Email (Gravatar Mode Only)"
 msgstr ""
