@@ -103,7 +103,7 @@ class PLNavi extends PageLinesSection {
 	<div class="navi-wrap <?php echo $class; ?> fix">
 		<div class="navi-left navi-container">
 			<?php if( '1' !== $this->opt( 'navi_logo_disable' ) ): ?>
-				<a href="<?php echo home_url('/');?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo() ); ?></a>
+				<a href="<?php echo home_url('/');?>"><?php echo $this->image( 'navi_logo', pl_get_theme_logo(), array(), get_bloginfo('name')); ?></a>
 			<?php endif; ?>
 		</div>
 		<div class="navi-right">
