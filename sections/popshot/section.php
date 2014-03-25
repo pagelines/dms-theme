@@ -6,7 +6,6 @@
 	Description: An animated image shelf that pops up the images when the user scrolls them on page.
 	Class Name: PLPopShot
 	Filter: gallery, full-width
-	Loading: active
 */
 
 
