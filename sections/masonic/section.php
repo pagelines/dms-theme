@@ -345,7 +345,7 @@ class PLMasonic extends PageLinesSection {
 						<div class="pl-grid-content fix">
 							<div class="fix">
 								<div class="pl-grid-meta">
-									<?php echo pl_karma( $post->ID );?>
+									<?php echo do_shortcode( sprintf( '[pl_karma post="%s"]', $post->ID ) );?>
 								</div>
 								<div class="pl-grid-text">
 									<h4>
