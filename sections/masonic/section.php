@@ -194,7 +194,7 @@ class PLMasonic extends PageLinesSection {
 
 
 
-		$meta = $this->opt($this->id.'_meta', array( 'default' => '[post_date] [post_edit]' ) );
+		$meta = $this->opt($this->id.'_meta', array( 'default' => '[post_date] [post_edit]', 'shortcode' => false ) );
 
 
 		if( $this->opt($this->id.'_sizes') && $this->opt($this->id.'_sizes') != '' )
