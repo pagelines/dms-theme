@@ -64,3 +64,6 @@
 [submodule "sections/socialinks"]
 	path = sections/socialinks
 	url = git@github.com:pagelines/socialinks.git
+[submodule "sections/testimonials"]
+	path = sections/testimonials
+	url = git@github.com:pagelines/testimonials.git
