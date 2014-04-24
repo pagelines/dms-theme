@@ -43,3 +43,6 @@
 [submodule "sections/maps"]
 	path = sections/maps
 	url = git@github.com:pagelines/maps.git
+[submodule "sections/docker"]
+	path = sections/docker
+	url = git@github.com:pagelines/docker.git
