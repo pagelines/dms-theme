@@ -46,3 +46,6 @@
 [submodule "sections/docker"]
 	path = sections/docker
 	url = git@github.com:pagelines/docker.git
+[submodule "sections/masonic"]
+	path = sections/masonic
+	url = git@github.com:pagelines/masonic.git
