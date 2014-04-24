@@ -61,3 +61,6 @@
 [submodule "sections/quickcarousel"]
 	path = sections/quickcarousel
 	url = git@github.com:pagelines/quickcarousel.git
+[submodule "sections/socialinks"]
+	path = sections/socialinks
+	url = git@github.com:pagelines/socialinks.git
