@@ -58,3 +58,6 @@
 [submodule "sections/popshot"]
 	path = sections/popshot
 	url = git@github.com:pagelines/popshot.git
+[submodule "sections/quickcarousel"]
+	path = sections/quickcarousel
+	url = git@github.com:pagelines/quickcarousel.git
