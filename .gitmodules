@@ -52,3 +52,6 @@
 [submodule "sections/navi"]
 	path = sections/navi
 	url = git@github.com:pagelines/navi.git
+[submodule "sections/pageheader"]
+	path = sections/pageheader
+	url = git@github.com:pagelines/pageheader.git
