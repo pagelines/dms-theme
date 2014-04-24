@@ -55,3 +55,6 @@
 [submodule "sections/pageheader"]
 	path = sections/pageheader
 	url = git@github.com:pagelines/pageheader.git
+[submodule "sections/popshot"]
+	path = sections/popshot
+	url = git@github.com:pagelines/popshot.git
