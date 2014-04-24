@@ -49,3 +49,6 @@
 [submodule "sections/masonic"]
 	path = sections/masonic
 	url = git@github.com:pagelines/masonic.git
+[submodule "sections/navi"]
+	path = sections/navi
+	url = git@github.com:pagelines/navi.git
