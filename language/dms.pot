@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DMS\n"
-"POT-Creation-Date: 2014-01-20 21:13-0000\n"
-"PO-Revision-Date: 2014-01-20 21:14-0000\n"
+"POT-Creation-Date: 2014-06-09 23:15-0000\n"
+"PO-Revision-Date: 2014-06-09 23:15-0000\n"
 "Last-Translator: Simon <simon@pagelines.com>\n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
 "esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
@@ -19,6 +19,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
+
 
 #: ../sections/docker/section.php:31
 msgid "Using This Section"
@@ -115,7 +116,7 @@ msgstr ""
 msgid "Flipper Meta"
 msgstr ""
 
-#: ../sections/flipper/section.php:109 ../sections/masonic/section.php:90
+#: ../sections/flipper/section.php:109 ../sections/masonic/section.php:95
 msgid ""
 "Use shortcodes to control the dynamic meta info. Example shortcodes you can "
 "use are: <ul><li><strong>[post_categories]</strong> - List of categories</"
@@ -138,11 +139,11 @@ msgstr ""
 msgid "Disable social button/count?"
 msgstr ""
 
-#: ../sections/flipper/section.php:134 ../sections/masonic/section.php:103
+#: ../sections/flipper/section.php:134 ../sections/masonic/section.php:109
 msgid "Sort elements by postdate"
 msgstr ""
 
-#: ../sections/flipper/section.php:165 ../sections/masonic/section.php:133
+#: ../sections/flipper/section.php:165 ../sections/masonic/section.php:139
 msgid "Only applies for standard blog posts."
 msgstr ""
 
@@ -350,11 +351,23 @@ msgid "Options to control the text and link in the Masonic title."
 msgstr ""
 
 #: ../sections/masonic/section.php:89
+msgid "Default Title"
+msgstr ""
+
+#: ../sections/masonic/section.php:94
 msgid "Masonic Meta"
 msgstr ""
 
-#: ../sections/masonic/section.php:140
+#: ../sections/masonic/section.php:146
 msgid "Additional Post Selection"
+msgstr ""
+
+#: ../sections/masonic/section.php:264
+msgid "Sort"
+msgstr ""
+
+#: ../sections/masonic/section.php:265
+msgid "All"
 msgstr ""
 
 #: ../sections/masthead/section.php:41
@@ -423,51 +436,46 @@ msgstr ""
 msgid "Enter Masthead Meta Text"
 msgstr ""
 
-#: ../sections/masthead/section.php:193
+#: ../sections/masthead/section.php:194
 msgid "Start Here"
 msgstr ""
 
-#: ../sections/navi/section.php:23
+#: ../sections/navi/section.php:16
 msgid "Navi Section"
 msgstr ""
 
-#: ../sections/navi/section.php:33
+#: ../sections/navi/section.php:26
 msgid "Logo"
 msgstr ""
 
-#: ../sections/navi/section.php:39
+#: ../sections/navi/section.php:32
 msgid "Navboard Logo"
 msgstr ""
 
-#: ../sections/navi/section.php:49
+#: ../sections/navi/section.php:42
 msgid "Disable Logo?"
 msgstr ""
 
-#: ../sections/navi/section.php:64
+#: ../sections/navi/section.php:57
 msgid "Using Megamenus (multi column drop down)"
 msgstr ""
 
-#: ../sections/navi/section.php:65
+#: ../sections/navi/section.php:58
 msgid ""
 "Want a full width, multi column \"mega menu\"? Simply add a class of "
 "\"megamenu\" to the list items using the WP menu creation tool."
 msgstr ""
 
-#: ../sections/navi/section.php:81
+#: ../sections/navi/section.php:74
 msgid "Dropdown offset from top of nav (optional)"
 msgstr ""
 
-#: ../sections/navi/section.php:82
+#: ../sections/navi/section.php:75
 msgid "Default is 100% aligned to bottom. Can be PX or %."
 msgstr ""
 
 #: ../sections/pageheader/section.php:20
 msgid "Header Config"
-msgstr ""
-
-#: ../sections/pageheader/section.php:35
-#: ../sections/testimonials/section.php:30
-msgid "Mode"
 msgstr ""
 
 #: ../sections/pageheader/section.php:45
@@ -486,10 +494,6 @@ msgstr ""
 msgid "Header Meta"
 msgstr ""
 
-#: ../sections/pageheader/section.php:75
-msgid "Header Menu (menu mode only)"
-msgstr ""
-
 #: ../sections/pageheader/section.php:80
 msgid "Header Link 1 (link mode only)"
 msgstr ""
@@ -498,50 +502,50 @@ msgstr ""
 msgid "Header Link 2 (link mode only)"
 msgstr ""
 
-#: ../sections/popshot/section.php:53
+#: ../sections/popshot/section.php:52
 msgid "PopShot Setup"
 msgstr ""
 
-#: ../sections/popshot/section.php:54
+#: ../sections/popshot/section.php:53
 msgid "PopShot"
 msgstr ""
 
-#: ../sections/popshot/section.php:58
+#: ../sections/popshot/section.php:57
 msgid ""
 "PopShot Image <span class=\"badge badge-mini badge-warning\">REQUIRED</span>"
 msgstr ""
 
-#: ../sections/popshot/section.php:63
+#: ../sections/popshot/section.php:62
 msgid "Offset from center"
 msgstr ""
 
-#: ../sections/popshot/section.php:66
+#: ../sections/popshot/section.php:65
 msgid ""
 "Left edge offset from center. For example -100px  would move the left edge "
 "of the image 100 pixels left from center."
 msgstr ""
 
-#: ../sections/popshot/section.php:70
+#: ../sections/popshot/section.php:69
 msgid "Maximum Width"
 msgstr ""
 
-#: ../sections/popshot/section.php:73
+#: ../sections/popshot/section.php:72
 msgid "Max width of image."
 msgstr ""
 
-#: ../sections/popshot/section.php:77
+#: ../sections/popshot/section.php:76
 msgid "Maximum Height"
 msgstr ""
 
-#: ../sections/popshot/section.php:80
+#: ../sections/popshot/section.php:79
 msgid "Max height from bottom in pixels."
 msgstr ""
 
-#: ../sections/popshot/section.php:84
+#: ../sections/popshot/section.php:83
 msgid "Z-Index (Stacking order)"
 msgstr ""
 
-#: ../sections/popshot/section.php:87
+#: ../sections/popshot/section.php:86
 msgid "Higher numbers will be placed higher in the stack."
 msgstr ""
 
@@ -866,6 +870,10 @@ msgstr ""
 
 #: ../sections/testimonials/section.php:26
 msgid "Testimonials Config"
+msgstr ""
+
+#: ../sections/testimonials/section.php:30
+msgid "Mode"
 msgstr ""
 
 #: ../sections/testimonials/section.php:45
