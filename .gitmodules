@@ -1,69 +1,69 @@
 [submodule "dms"]
 	path = dms
-	url = git@github.com:pagelines/DMS.git
+	url = https://github.com/pagelines/DMS.git
 [submodule "sections/flipper"]
 	path = sections/flipper
-	url = git@github.com:pagelines/flipper.git
+	url = https://github.com/pagelines/flipper.git
 [submodule "sections/hero"]
 	path = sections/hero
-	url = git@github.com:pagelines/hero.git
+	url = https://github.com/pagelines/hero.git
 [submodule "sections/icallout"]
 	path = sections/icallout
-	url = git@github.com:pagelines/icallout.git
+	url = https://github.com/pagelines/icallout.git
 [submodule "sections/masthead"]
 	path = sections/masthead
-	url = git@github.com:pagelines/masthead.git
+	url = https://github.com/pagelines/masthead.git
 [submodule "sections/popthumbs"]
 	path = sections/popthumbs
-	url = git@github.com:pagelines/popthumbs.git
+	url = https://github.com/pagelines/popthumbs.git
 [submodule "sections/propricing"]
 	path = sections/propricing
-	url = git@github.com:pagelines/propricing.git
+	url = https://github.com/pagelines/propricing.git
 [submodule "sections/quickslider"]
 	path = sections/quickslider
-	url = git@github.com:pagelines/quickslider.git
+	url = https://github.com/pagelines/quickslider.git
 [submodule "sections/rapidtabs"]
 	path = sections/rapidtabs
-	url = git@github.com:pagelines/rapidtabs.git
+	url = https://github.com/pagelines/rapidtabs.git
 [submodule "sections/revslider"]
 	path = sections/revslider
-	url = git@github.com:pagelines/revslider.git
+	url = https://github.com/pagelines/revslider.git
 [submodule "sections/scrollspy"]
 	path = sections/scrollspy
-	url = git@github.com:pagelines/scrollspy.git
+	url = https://github.com/pagelines/scrollspy.git
 [submodule "sections/secondnav"]
 	path = sections/secondnav
-	url = git@github.com:pagelines/secondnav.git
+	url = https://github.com/pagelines/secondnav.git
 [submodule "sections/sharebar"]
 	path = sections/sharebar
-	url = git@github.com:pagelines/sharebar.git
+	url = https://github.com/pagelines/sharebar.git
 [submodule "sections/starbars"]
 	path = sections/starbars
-	url = git@github.com:pagelines/starbars.git
+	url = https://github.com/pagelines/starbars.git
 [submodule "sections/maps"]
 	path = sections/maps
-	url = git@github.com:pagelines/maps.git
+	url = https://github.com/pagelines/maps.git
 [submodule "sections/docker"]
 	path = sections/docker
-	url = git@github.com:pagelines/docker.git
+	url = https://github.com/pagelines/docker.git
 [submodule "sections/masonic"]
 	path = sections/masonic
-	url = git@github.com:pagelines/masonic.git
+	url = https://github.com/pagelines/masonic.git
 [submodule "sections/navi"]
 	path = sections/navi
-	url = git@github.com:pagelines/navi.git
+	url = https://github.com/pagelines/navi.git
 [submodule "sections/pageheader"]
 	path = sections/pageheader
-	url = git@github.com:pagelines/pageheader.git
+	url = https://github.com/pagelines/pageheader.git
 [submodule "sections/popshot"]
 	path = sections/popshot
-	url = git@github.com:pagelines/popshot.git
+	url = https://github.com/pagelines/popshot.git
 [submodule "sections/quickcarousel"]
 	path = sections/quickcarousel
-	url = git@github.com:pagelines/quickcarousel.git
+	url = https://github.com/pagelines/quickcarousel.git
 [submodule "sections/socialinks"]
 	path = sections/socialinks
-	url = git@github.com:pagelines/socialinks.git
+	url = https://github.com/pagelines/socialinks.git
 [submodule "sections/testimonials"]
 	path = sections/testimonials
-	url = git@github.com:pagelines/testimonials.git
+	url = https://github.com/pagelines/testimonials.git
